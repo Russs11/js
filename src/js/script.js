@@ -12,7 +12,59 @@
 // let z = 1.3;
 // let f1 = 4;
 // let f2 = 5;
+let x = 3;
+let y = 2;
 
+y = x;
+
+y = 4;
+
+const a = 2;
+
+
+
+
+
+// console.log('b: ', b);
+// console.log('a: ', a);
+// console.log('x: ', x);
+// console.log('y: ', y);
+
+let b = prompt("температура по F")
+
+function f1(tF) {
+    let number = Number(tF)
+    // console.log('number: ', number);
+    // console.log('number type: ', typeof (number));
+    if (number >= 0) {
+        let tc = (tF - 32) * 5 / 9;
+        console.log("температура в C ", tc)
+        return;        
+    } else if (number < 0){
+        let tc = (tF - 32) * 5 / 9;
+        console.log("температура в C ", tc)
+        return;
+    } else if ()
+        
+    else {
+        console.log("вы ввели не число")
+        return
+    }
+}
+
+f1(b)
+// console.log('tC(): ', f1(b));
+// let f2 = function () {
+//     console.log('f2');
+// }
+
+// let f3 = () => {
+//     console.log('f3');
+// }
+
+// f2()
+
+// f3()
 
 // let z1 = "1.3";
 // let z2 = '1.3';
@@ -65,12 +117,13 @@
 // TC = (TF – 32)·5 / 9.
 
 
-let temp = 255;
+// let temp = 255;
 
-function tfToTc(tDefault) {
-    let t = tDefault;
-    let tc = (t - 32) * 5 / 9;
-    return tc;
-}
+// function tfToTc(tDefault) {
+//     let t = tDefault;
+//     let tc = (t - 32) * 5 / 9;
+//     return tc;
+// }
 
-console.log('в градусах цельсия - ', tfToTc(temp));
+// console.log('в градусах цельсия - ', tfToTc(temp));
+
