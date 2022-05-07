@@ -39,13 +39,16 @@ function f1(tF) {
     if (number >= 0) {
         let tc = (tF - 32) * 5 / 9;
         console.log("температура в C ", tc)
-        return;        
-    } else if (number < 0){
+        return;
+    } else if (number < 0) {
         let tc = (tF - 32) * 5 / 9;
         console.log("температура в C ", tc)
         return;
-    } else if ()
-        
+    // } else if (number === null) {
+    //     console.log("вы ввели не число")
+    //     return
+    // }
+
     else {
         console.log("вы ввели не число")
         return
