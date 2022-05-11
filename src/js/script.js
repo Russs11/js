@@ -11,15 +11,15 @@
 // console.log('x2: ', x);
 // let z = 1.3;
 // let f1 = 4;
-// let f2 = 5;
-let x = 3;
-let y = 2;
+// // let f2 = 5;
+// let x = 3;
+// let y = 2;
 
-y = x;
+// y = x;
 
-y = 4;
+// y = 4;
 
-const a = 2;
+// const a = 2;
 
 
 
@@ -30,32 +30,32 @@ const a = 2;
 // console.log('x: ', x);
 // console.log('y: ', y);
 
-let b = prompt("температура по F")
+// let b = prompt("температура по F")
 
-function f1(tF) {
-    let number = Number(tF)
-    // console.log('number: ', number);
-    // console.log('number type: ', typeof (number));
-    if (number >= 0) {
-        let tc = (tF - 32) * 5 / 9;
-        console.log("температура в C ", tc)
-        return;
-    } else if (number < 0) {
-        let tc = (tF - 32) * 5 / 9;
-        console.log("температура в C ", tc)
-        return;
-    // } else if (number === null) {
-    //     console.log("вы ввели не число")
-    //     return
-    // }
+// function f1(tF) {
+//     let number = Number(tF)
+//     // console.log('number: ', number);
+//     // console.log('number type: ', typeof (number));
+//     if (number >= 0) {
+//         let tc = (tF - 32) * 5 / 9;
+//         console.log("температура в C ", tc)
+//         return;
+//     } else if (number < 0) {
+//         let tc = (tF - 32) * 5 / 9;
+//         console.log("температура в C ", tc)
+//         return;
+//     } else if (number === null) {
+//         console.log("вы ввели не число")
+//         return
+//     }
 
-    else {
-        console.log("вы ввели не число")
-        return
-    }
-}
+//     else {
+//         console.log("вы ввели не число")
+//         return
+//     }
+// }
 
-f1(b)
+// f1(b)
 // console.log('tC(): ', f1(b));
 // let f2 = function () {
 //     console.log('f2');
@@ -130,3 +130,46 @@ f1(b)
 
 // console.log('в градусах цельсия - ', tfToTc(temp));
 
+//задача №3
+let inputNumber = 456
+let str = ""
+let strDec = ""
+if (inputNumber > 99) {
+    let res = inputNumber / 100
+    // console.log("количество сотен ", res)
+    if (res >= 1) {
+        str = str + "сто "
+        if (res >= 2) {
+            str = "двести "
+        }
+        if (res >= 3) {
+            str = "триста "
+        }
+        if (res >= 4) {
+            str = "четыреста "
+        }
+        if (res >= 5) {
+            str = "пятьсот "
+        }
+        if (res >= 6) {
+            str = "шестьсот "
+        }
+        if (res >= 7) {
+            str = "семьсот "
+        }
+        if (res >= 8) {
+            str = "восемьсот "
+        }
+        if (res >= 9) {
+            str = "девятьсот "
+        }
+    }
+
+    let resDec = inputNumber % 100
+
+} 
+
+if (inputNumber < 100 && inputNumber > 9) {
+    
+}
+console.log(str);
