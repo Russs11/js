@@ -131,9 +131,10 @@
 // console.log('в градусах цельсия - ', tfToTc(temp));
 
 //задача №3
-let inputNumber = 516
+let inputNumber = 772
 let str = ""
 let strDec = ""
+let strUnit = ""
 if (inputNumber > 99) {
     let res = inputNumber / 100
     // console.log("количество сотен ", res)
@@ -168,57 +169,79 @@ if (inputNumber > 99) {
     let resDec = inputNumber % 100
     if (resDec >= 10) {
         strDec = "десять "
+
+        if (resDec >= 20) {
+            strDec = "двадцать "
+        }
+        if (resDec >= 30) {
+            strDec = "тридцать "
+        }
+        if (resDec >= 40) {
+            strDec = "сорок "
+        }
+        if (resDec >= 50) {
+            strDec = "пятьдесят "
+        }
+        if (resDec >= 60) {
+            strDec = "шестьдесят "
+        }
+        if (resDec >= 70) {
+            strDec = "семьдесят "
+        }
+        if (resDec >= 80) {
+            strDec = "восемьдесят "
+        }
+        if (resDec >= 90) {
+            strDec = "девяносто "
+        }
+        if (resDec === 11) {
+            strDec = "одиннадцать "
+        }
+        if (resDec === 12) {
+            strDec = "двенадцать "
+        }
+        if (resDec === 13) {
+            strDec = "тринадцать "
+        }
+        if (resDec === 14) {
+            strDec = "четырнадцать "
+        }
+        if (resDec === 15) {
+            strDec = "пятнадцать "
+        }
+        if (resDec === 16) {
+            strDec = "шестнадцать "
+        }
+        if (resDec === 17) {
+            strDec = "семнадцать "
+        }
+        if (resDec === 18) {
+            strDec = "восемнадцать "
+        }
+        if (resDec === 19) {
+            strDec = "девятнадцать "
+        }
+
     }
-    if (resDec >= 20) {
-        strDec = "двадцать "
-    }
-    if (resDec >= 30) {
-        strDec = "тридцать "
-    }
-    if (resDec >= 40) {
-        strDec = "сорок "
-    }
-    if (resDec >= 50) {
-        strDec = "пятьдесят "
-    }
-    if (resDec >= 60) {
-        strDec = "шестьдесят "
-    }
-    if (resDec >= 70) {
-        strDec = "семьдесят "
-    }
-    if (resDec >= 80) {
-        strDec = "восемьдесят "
-    }
-    if (resDec >= 90) {
-        strDec = "девяносто "
-    }
-    if (resDec === 11) {
-        strDec = "одиннадцать "
-    }
-    if (resDec === 12) {
-        strDec = "двенадцать "
-    }
-    if (resDec === 13) {
-        strDec = "тринадцать "
-    }
-    if (resDec === 14) {
-        strDec = "четырнадцать "
-    }
-    if (resDec === 15) {
-        strDec = "пятнадцать "
-    }
-    if (resDec === 16) {
-        strDec = "шестнадцать "
-    }
-    if (resDec === 17) {
-        strDec = "семнадцать "
-    }
-    if (resDec === 18) {
-        strDec = "восемнадцать "
-    }
-    if (resDec === 19) {
-        strDec = "девятнадцать "
+    let resUnit = inputNumber % 10
+    if (resUnit === 0) {
+        strUnit = ""
+    } if (resUnit === 1) {
+        strUnit = "один "
+    } if (resUnit === 2) {
+        strUnit = "два "
+    } if (resUnit === 3) {
+        strUnit = "три "
+    } if (resUnit === 4) {
+        strUnit = "четыре "
+    } if (resUnit === 5) {
+        strUnit = "шесть "
+    } if (resUnit === 7) {
+        strUnit = "семь "
+    } if (resUnit === 8) {
+        strUnit = "восемь "
+    } if (resUnit === 9) {
+        strUnit = "девять "
     }
 }
 
@@ -226,4 +249,4 @@ if (inputNumber > 99) {
 // if (inputNumber < 100 && inputNumber > 9) {
 
 // }
-console.log(strDec);
+console.log(str + strDec + strUnit);
