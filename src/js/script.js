@@ -131,7 +131,7 @@
 // console.log('в градусах цельсия - ', tfToTc(temp));
 
 //задача №3
-let inputNumber = 999
+let inputNumber = 516
 let str = ""
 let strDec = ""
 if (inputNumber > 99) {
@@ -192,11 +192,38 @@ if (inputNumber > 99) {
     }
     if (resDec >= 90) {
         strDec = "девяносто "
-    }       
+    }
+    if (resDec === 11) {
+        strDec = "одиннадцать "
+    }
+    if (resDec === 12) {
+        strDec = "двенадцать "
+    }
+    if (resDec === 13) {
+        strDec = "тринадцать "
+    }
+    if (resDec === 14) {
+        strDec = "четырнадцать "
+    }
+    if (resDec === 15) {
+        strDec = "пятнадцать "
+    }
+    if (resDec === 16) {
+        strDec = "шестнадцать "
+    }
+    if (resDec === 17) {
+        strDec = "семнадцать "
+    }
+    if (resDec === 18) {
+        strDec = "восемнадцать "
+    }
+    if (resDec === 19) {
+        strDec = "девятнадцать "
+    }
 }
 
 
 // if (inputNumber < 100 && inputNumber > 9) {
-    
+
 // }
 console.log(strDec);
