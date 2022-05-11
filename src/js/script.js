@@ -131,10 +131,11 @@
 // console.log('в градусах цельсия - ', tfToTc(temp));
 
 //задача №3
-let inputNumber = 456
+let inputNumber = 93
 let str = ""
 let strDec = ""
 let strUnit = ""
+let strTwo = ""
 if (inputNumber > 99) {
     let res = inputNumber / 100
     // console.log("количество сотен ", res)
@@ -222,6 +223,7 @@ if (inputNumber > 99) {
             strDec = "девятнадцать "
         }
     }
+
     if (resDec > 10 && resDec < 20) {
     }
     else {
@@ -249,23 +251,64 @@ if (inputNumber > 99) {
         }
     }
 
-    // switch (resUnit) {
-    //     case 0:
-    //         strUnit = ""
-    //         break;
-    //     case 1:
-    //         strUnit = "один "
-    //         break;
-    //     case 2:
-    //         strUnit = "два "
-    //         break;
-    //     default:
-    //         break;
-    // }
+    if (inputNumber < 100 && inputNumber > 9) {
+        let resTwo = inputNumber / 10
+        if (resTwo >= 1) {
+            strTwo = "десять "
+            if (resTwo >= 2) {
+                strTwo = "двадцать "
+            }
+            if (resTwo >= 3) {
+                strTwo = "тридцать "
+            }
+            if (resTwo >= 4) {
+                strTwo = "сорок "
+            }
+            if (resTwo >= 5) {
+                strTwo = "пятьдесят "
+            }
+            if (resTwo >= 6) {
+                strTwo = "шестьдесят "
+            }
+            if (resTwo >= 7) {
+                strTwo = "семьдесят "
+            }
+            if (resTwo >= 8) {
+                strTwo = "восемьдесят "
+            }
+            if (resTwo >= 9) {
+                strTwo = "девяносто "
+            }
+        }
+    }
 
+        // let resDec = inputNumber % 100
+        // if (resDec >= 10) {
+        //     strDec = "десять "
 
-
-    // if (inputNumber < 100 && inputNumber > 9) {
-
+        //     if (resDec >= 20) {
+        //         strDec = "двадцать "
+        //     }
+        //     if (resDec >= 30) {
+        //         strDec = "тридцать "
+        //     }
+        //     if (resDec >= 40) {
+        //         strDec = "сорок "
+        //     }
+        //     if (resDec >= 50) {
+        //         strDec = "пятьдесят "
+        //     }
+        //     if (resDec >= 60) {
+        //         strDec = "шестьдесят "
+        //     }
+        //     if (resDec >= 70) {
+        //         strDec = "семьдесят "
+        //     }
+        //     if (resDec >= 80) {
+        //         strDec = "восемьдесят "
+        //     }
+        //     if (resDec >= 90) {
+        //         strDec = "девяносто "
+        //     }
 }
-console.log(str + strDec + strUnit);
+console.log(str + strDec + strUnit + strTwo);
