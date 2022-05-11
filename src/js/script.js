@@ -131,7 +131,7 @@
 // console.log('в градусах цельсия - ', tfToTc(temp));
 
 //задача №3
-let inputNumber = 772
+let inputNumber = 456
 let str = ""
 let strDec = ""
 let strUnit = ""
@@ -237,6 +237,8 @@ if (inputNumber > 99) {
         } if (resUnit === 4) {
             strUnit = "четыре "
         } if (resUnit === 5) {
+            strUnit = "пять "
+        }if (resUnit === 6) {
             strUnit = "шесть "
         } if (resUnit === 7) {
             strUnit = "семь "
