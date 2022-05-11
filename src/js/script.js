@@ -221,32 +221,49 @@ if (inputNumber > 99) {
         if (resDec === 19) {
             strDec = "девятнадцать "
         }
+    }
+    if (resDec > 10 && resDec < 20) {
+    }
+    else {
+        let resUnit = inputNumber % 10
+        if (resUnit === 0) {
+            strUnit = ""
+        } if (resUnit === 1) {
+            strUnit = "один "
+        } if (resUnit === 2) {
+            strUnit = "два "
+        } if (resUnit === 3) {
+            strUnit = "три "
+        } if (resUnit === 4) {
+            strUnit = "четыре "
+        } if (resUnit === 5) {
+            strUnit = "шесть "
+        } if (resUnit === 7) {
+            strUnit = "семь "
+        } if (resUnit === 8) {
+            strUnit = "восемь "
+        } if (resUnit === 9) {
+            strUnit = "девять "
+        }
+    }
 
-    }
-    let resUnit = inputNumber % 10
-    if (resUnit === 0) {
-        strUnit = ""
-    } if (resUnit === 1) {
-        strUnit = "один "
-    } if (resUnit === 2) {
-        strUnit = "два "
-    } if (resUnit === 3) {
-        strUnit = "три "
-    } if (resUnit === 4) {
-        strUnit = "четыре "
-    } if (resUnit === 5) {
-        strUnit = "шесть "
-    } if (resUnit === 7) {
-        strUnit = "семь "
-    } if (resUnit === 8) {
-        strUnit = "восемь "
-    } if (resUnit === 9) {
-        strUnit = "девять "
-    }
+    // switch (resUnit) {
+    //     case 0:
+    //         strUnit = ""
+    //         break;
+    //     case 1:
+    //         strUnit = "один "
+    //         break;
+    //     case 2:
+    //         strUnit = "два "
+    //         break;
+    //     default:
+    //         break;
+    // }
+
+
+
+    // if (inputNumber < 100 && inputNumber > 9) {
+
 }
-
-
-// if (inputNumber < 100 && inputNumber > 9) {
-
-// }
 console.log(str + strDec + strUnit);
