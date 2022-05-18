@@ -431,8 +431,50 @@
 // console.log(hum1.sayHello());
 // console.log(hum2.sayName());
 // console.log(hum2.sayHello());
+class Trainer {
+    constructor(name, dogArray) {
+        this.trainerName = name
+        this.dogs = dogArray
+    }
+    sayHello() {
+        console.log("Меня зовут " + this.trainerName);
+    }
+    makeSound() {
+        console.log(this.trainerName + ' сказал "голос"')
+        this.dogs.forEach((item) => {
+            item.barking()
+        });
+    }
+    waveHand() {
+        console.log(this.trainerName + ' помахал рукой');
+        this.dogs.forEach(item => {
+            item.wagging()
+        });
+    }
 
+}
+class Dog {
+    constructor(name) {
+        this.dogName = name
+    }
+    barking() {
+        console.log(this.dogName + ' говорит "гав"')
+    }
+    wagging() {
+        console.log(this.dogName + ' виляет хвостом')
+    }
+}
+let dog_1 = new Dog("Барсик")
+let dog_2 = new Dog("Рэкс")
+let dog_3 = new Dog("Барон")
 
+let dogs = []
+dogs.push(dog_1)
+dogs.push(dog_2)
+dogs.push(dog_3)
+// console.log(dogs);
+
+let trainer = new Trainer ("Александр", dogs)
 
 
 
