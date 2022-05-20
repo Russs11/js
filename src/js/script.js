@@ -474,7 +474,89 @@ dogs.push(dog_2)
 dogs.push(dog_3)
 // console.log(dogs);
 
-let trainer = new Trainer ("Александр", dogs)
+let trainer = new Trainer("Александр", dogs)
 
+class Car {
+    constructor(sw, btn) {
+        this.steeringWheel = sw
+        this.startBtn = btn
+    }
+    startCar() {
+        this.startBtn.turnOnOf()
+    }
+}
+class StartBtn {
+    constructor(engine) {
+        this.onOf = false
+        this.startEng = engine
+    }
+    turnOnOf() {
+        if (this.onOf === false) {
+            this.onOf = true;
+            this.startEng.startEngine()
+        }
+        else {
+            this.onOf = false;
+            this.startEng.startEngine()
+        }
+    }
 
+}
+
+class Engine {
+    constructor(wheel_1, wheel_2, wheel_3, wheel_4) {
+        this.engOnOf = false
+        this.engRotateWheel = [wheel_1, wheel_2, wheel_3, wheel_4]
+    }
+    startEngine() {
+        if (this.engOnOf === false) {
+            this.engOnOf = true;
+            console.log("lдвигатель включен ");
+            this.engRotateWheel.forEach((item) => { item.rotateOnOf() })
+        }
+        else {
+            this.engOnOf = false;
+            console.log("lдвигатель выключен ");
+            this.engRotateWheel.forEach((item) => { item.rotateOnOf() })
+        }
+    }
+
+}
+class Wheel {
+    constructor(isFront) {
+        this.rotate = false
+        this.isFrontWheel = false
+        if (isFront === true) {
+            this.isFrontWheel = true
+        }
+    }
+    rotateOnOf() {
+        if (this.rotate === false) {
+            this.rotate = true;
+            if (this.isFrontWheel === true) {
+                console.log("Переднее колесо крутится ");
+            }
+            else {
+                console.log("Заднее колесо крутится ");   
+            }
+        }
+        else {
+            this.rotate = false;
+            if (this.isFrontWheel === true) {
+                console.log("Переднее колесо не крутится ");
+            }
+            else {
+                console.log("Заднее колесо не крутится ");
+            }
+        }
+    }
+}
+const wheel_1 = new Wheel(true)
+const wheel_2 = new Wheel(true)
+const wheel_3 = new Wheel(false)
+const wheel_4 = new Wheel(false)
+
+const engine = new Engine(wheel_1, wheel_2, wheel_3, wheel_4)
+const btn = new StartBtn(engine)
+const car = new Car("", btn)
 
