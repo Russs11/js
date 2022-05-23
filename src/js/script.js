@@ -476,6 +476,13 @@ dogs.push(dog_3)
 
 let trainer = new Trainer("Александр", dogs)
 
+
+
+
+
+
+
+
 class Car {
     constructor(sw, btn) {
         this.steeringWheel = sw
@@ -534,23 +541,29 @@ class Wheel {
         if (this.rotate === false) {
             this.rotate = true;
             if (this.isFrontWheel === true) {
-                console.log("Переднее колесо крутится ");
+                console.log("Передние колеса крутятся ");
             }
             else {
-                console.log("Заднее колесо крутится ");   
+                console.log("Задние колеса крутятся ");   
             }
         }
         else {
             this.rotate = false;
             if (this.isFrontWheel === true) {
-                console.log("Переднее колесо не крутится ");
+                console.log("Передние колеса не крутятся ");
             }
             else {
-                console.log("Заднее колесо не крутится ");
+                console.log("Задние колеса не крутятся ");
             }
         }
     }
 }
+// class StearingWheel {
+//     constructor(wheel_1, wheel_2)
+// } 
+    
+    
+    
 const wheel_1 = new Wheel(true)
 const wheel_2 = new Wheel(true)
 const wheel_3 = new Wheel(false)
