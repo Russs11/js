@@ -491,6 +491,7 @@ class Car {
     startCar() {
         this.startBtn.turnOnOf()
     }
+    
 }
 class StartBtn {
     constructor(engine) {
@@ -518,12 +519,12 @@ class Engine {
     startEngine() {
         if (this.engOnOf === false) {
             this.engOnOf = true;
-            console.log("lдвигатель включен ");
+            console.log("двигатель включен ");
             this.engRotateWheel.forEach((item) => { item.rotateOnOf() })
         }
         else {
             this.engOnOf = false;
-            console.log("lдвигатель выключен ");
+            console.log("двигатель выключен ");
             this.engRotateWheel.forEach((item) => { item.rotateOnOf() })
         }
     }
@@ -544,7 +545,7 @@ class Wheel {
                 console.log("Передние колеса крутятся ");
             }
             else {
-                console.log("Задние колеса крутятся ");   
+                console.log("Задние колеса крутятся ");
             }
         }
         else {
@@ -558,12 +559,22 @@ class Wheel {
         }
     }
 }
-// class StearingWheel {
-//     constructor(wheel_1, wheel_2)
-// } 
-    
-    
-    
+class StearingWheel {
+    constructor(isFront) {
+        this.left = left
+        this.right = right
+
+        turnLeft() {
+            if (this.left) {
+                console.log("передние колеса поворачивают влево")
+                this.isFrontWheel = left
+            }
+        }
+    }
+}
+
+
+
 const wheel_1 = new Wheel(true)
 const wheel_2 = new Wheel(true)
 const wheel_3 = new Wheel(false)
@@ -572,4 +583,5 @@ const wheel_4 = new Wheel(false)
 const engine = new Engine(wheel_1, wheel_2, wheel_3, wheel_4)
 const btn = new StartBtn(engine)
 const car = new Car("", btn)
+const sw = new StearingWheel(left, right)
 
