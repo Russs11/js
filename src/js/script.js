@@ -492,6 +492,7 @@ class Car {
         this.startBtn.turnOnOf()
     }
     
+
 }
 class StartBtn {
     constructor(engine) {
@@ -558,15 +559,27 @@ class Wheel {
             }
         }
     }
+    lookForvard() {
+        if (this.isFrontWheel === true) {
+            console.log("передние колеса направлены прямо");
+        }
+    }
 }
 class StearingWheel {
-    constructor(isFront) {
-        this.left = left
-        this.right = right
+    constructor(wheel_1, wheel_2, wheel_3, wheel_4) {
+        this.forvard = forvard
+        this.turnLeft = left
+        this.turnRight = right
 
+        lookForvard() {
+            if (this.forvard === forvard) {
+                console.log("передние колеса направлены прямо");
+            }
+
+        }
         turnLeft() {
-            if (this.left) {
-                console.log("передние колеса поворачивают влево")
+            if (this.left === left) {
+                console.log("передние колеса поворачивают влево");
                 this.isFrontWheel = left
             }
         }
@@ -583,5 +596,5 @@ const wheel_4 = new Wheel(false)
 const engine = new Engine(wheel_1, wheel_2, wheel_3, wheel_4)
 const btn = new StartBtn(engine)
 const car = new Car("", btn)
-const sw = new StearingWheel(left, right)
+const sw = new StearingWheel(forvard, left, right)
 
