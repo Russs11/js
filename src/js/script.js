@@ -502,7 +502,6 @@ class StartBtn {
         this.engine.toggleEngine()
     }
 }
-
 class Engine {
     constructor(wheelsArr) {
         this.OnOf = false
@@ -513,15 +512,12 @@ class Engine {
         this.OnOf ? console.log("двигатель включен") : console.log("двигатель выключен")
         this.wheelsArr.forEach((item) => { item.toggleRotate() })
     }
-
 }
 class Wheel {
     constructor(isFront) {
         this.rotate = false
         this.isFrontWheel = false
-        if (isFront) {
-            this.isFrontWheel = true
-        }
+        isFront ? this.isFrontWheel = true : null
     }
     toggleRotate() {
         this.rotate = !this.rotate;
