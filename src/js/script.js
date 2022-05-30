@@ -484,50 +484,34 @@ let trainer = new Trainer("Александр", dogs)
 
 
 class Car {
-    constructor(sw, btn) {
-        this.steeringWheel = sw
-        this.startBtn = btn
+    constructor(steeringWheel, startBtn) {
+        this.steeringWheel = steeringWheel
+        this.startBtn = startBtn
     }
     startCar() {
-        this.startBtn.turnOnOf()
+        this.startBtn.toggleOnOf()
     }
-    
-
 }
 class StartBtn {
     constructor(engine) {
         this.onOf = false
-        this.startEng = engine
+        this.engine = engine
     }
-    turnOnOf() {
-        if (this.onOf === false) {
-            this.onOf = true;
-            this.startEng.startEngine()
-        }
-        else {
-            this.onOf = false;
-            this.startEng.startEngine()
-        }
+    toggleOnOf() {
+        this.onOf = !this.onOf;
+        this.engine.toggleEngine()
     }
-
 }
 
 class Engine {
-    constructor(wheel_1, wheel_2, wheel_3, wheel_4) {
-        this.engOnOf = false
-        this.engRotateWheel = [wheel_1, wheel_2, wheel_3, wheel_4]
+    constructor(wheelsArr) {
+        this.OnOf = false
+        this.wheelsArr = wheelsArr
     }
-    startEngine() {
-        if (this.engOnOf === false) {
-            this.engOnOf = true;
-            console.log("двигатель включен ");
-            this.engRotateWheel.forEach((item) => { item.rotateOnOf() })
-        }
-        else {
-            this.engOnOf = false;
-            console.log("двигатель выключен ");
-            this.engRotateWheel.forEach((item) => { item.rotateOnOf() })
-        }
+    toggleEngine() {
+        this.OnOf = !this.OnOf;
+        this.OnOf ? console.log("двигатель включен") : console.log("двигатель выключен")
+        this.wheelsArr.forEach((item) => { item.toggleRotate() })
     }
 
 }
@@ -535,29 +519,14 @@ class Wheel {
     constructor(isFront) {
         this.rotate = false
         this.isFrontWheel = false
-        if (isFront === true) {
+        if (isFront) {
             this.isFrontWheel = true
         }
     }
-    rotateOnOf() {
-        if (this.rotate === false) {
-            this.rotate = true;
-            if (this.isFrontWheel === true) {
-                console.log("Передние колеса крутятся ");
-            }
-            else {
-                console.log("Задние колеса крутятся ");
-            }
-        }
-        else {
-            this.rotate = false;
-            if (this.isFrontWheel === true) {
-                console.log("Передние колеса не крутятся ");
-            }
-            else {
-                console.log("Задние колеса не крутятся ");
-            }
-        }
+    toggleRotate() {
+        this.rotate = !this.rotate;
+        let message = `${this.isFrontWheel ? "Переднее " : "Заднее "} ${this.rotate ? "колесо крутятся" : "колесо не крутятся"}`
+        console.log(message);
     }
     lookForvard() {
         if (this.isFrontWheel === true) {
@@ -565,36 +534,31 @@ class Wheel {
         }
     }
 }
-class StearingWheel {
-    constructor(wheel_1, wheel_2, wheel_3, wheel_4) {
-        this.forvard = forvard
-        this.turnLeft = left
-        this.turnRight = right
+// class StearingWheel {
+//     constructor(wheel_1, wheel_2, wheel_3, wheel_4) {
+//         this.forvard = forvard
+//         this.turnLeft = left
+//         this.turnRight = right
 
-        lookForvard() {
-            if (this.forvard === forvard) {
-                console.log("передние колеса направлены прямо");
-            }
+//         lookForvard() {
+//             if (this.forvard === forvard) {
+//                 console.log("передние колеса направлены прямо");
+//             }
 
-        }
-        turnLeft() {
-            if (this.left === left) {
-                console.log("передние колеса поворачивают влево");
-                this.isFrontWheel = left
-            }
-        }
-    }
-}
+//         }
+//         turnLeft() {
+//             if (this.left === left) {
+//                 console.log("передние колеса поворачивают влево");
+//                 this.isFrontWheel = left
+//             }
+//         }
+//     }
+// }
 
+const wheels = [new Wheel(true), new Wheel(true), new Wheel(false), new Wheel(false)]
 
-
-const wheel_1 = new Wheel(true)
-const wheel_2 = new Wheel(true)
-const wheel_3 = new Wheel(false)
-const wheel_4 = new Wheel(false)
-
-const engine = new Engine(wheel_1, wheel_2, wheel_3, wheel_4)
+const engine = new Engine(wheels)
 const btn = new StartBtn(engine)
 const car = new Car("", btn)
-const sw = new StearingWheel(forvard, left, right)
+// const sw = new StearingWheel(forvard, left, right)
 
