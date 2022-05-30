@@ -567,24 +567,24 @@ class Headlights {
         
     }
 }
-class StearingWheel {
-    constructor(wheel_1, wheel_2, wheel_3, wheel_4) {
-        this.forvard = forvard
+// class StearingWheel {
+//     constructor(wheel_1, wheel_2, wheel_3, wheel_4) {
+//         this.forvard = forvard
        
-        lookForvard() {
-            if (this.forvard === forvard) {
-                console.log("передние колеса направлены прямо");
-            }
+//         lookForvard() {
+//             if (this.forvard === forvard) {
+//                 console.log("передние колеса направлены прямо");
+//             }
 
-        }
-        turnLeft() {
-            if (this.left === left) {
-                console.log("передние колеса поворачивают влево");
-                this.isFrontWheel = left
-            }
-        }
-    }
-}
+//         }
+//         turnLeft() {
+//             if (this.left === left) {
+//                 console.log("передние колеса поворачивают влево");
+//                 this.isFrontWheel = left
+//             }
+//         }
+//     }
+// }
 
 const wheels = [new Wheel(true), new Wheel(true), new Wheel(false), new Wheel(false)]
 
