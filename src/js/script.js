@@ -481,15 +481,20 @@ let trainer = new Trainer("Александр", dogs)
 
 
 
-
+const l1 = document.querySelector('.lights1')
+const l2 = document.querySelector('.lights2')
 
 class Car {
-    constructor(steeringWheel, startBtn) {
+    constructor(steeringWheel, startBtn, headlightsBtn) {
         this.steeringWheel = steeringWheel
         this.startBtn = startBtn
+        this.headlightsBtn = headlightsBtn
     }
     startCar() {
         this.startBtn.toggleOnOf()
+    }
+    toggleLights() {
+        this.headlightsBtn.toggleOnOf()
     }
 }
 class StartBtn {
@@ -500,6 +505,16 @@ class StartBtn {
     toggleOnOf() {
         this.onOf = !this.onOf;
         this.engine.toggleEngine()
+    }
+}
+class HeadLightsBtn {
+    constructor(headlights) {
+        this.onOf = false
+        this.headlights = headlights
+    }
+    toggleOnOf() {
+        this.onOf = !this.onOf;
+        this.headlights.toggleOnOf()
     }
 }
 class Engine {
@@ -530,31 +545,54 @@ class Wheel {
         }
     }
 }
-// class StearingWheel {
-//     constructor(wheel_1, wheel_2, wheel_3, wheel_4) {
-//         this.forvard = forvard
-//         this.turnLeft = left
-//         this.turnRight = right
+class Headlights {
+    constructor(light1, light2) {
+        this.onOf = false
+        this.light1 = light1
+        this.light2 = light2
+    }
+    toggleOnOf() {
+        if (this.onOf === false) {
+            this.onOf = true
+            console.log("Фары горят")
+            this.light1.classList.add('lights-active')
+            this.light2.classList.add('lights-active')
+        } else {
+            this.onOf = false
+            console.log("Фары не горят")
+            this.light1.classList.remove('lights-active')
+            this.light2.classList.remove('lights-active')
+        }
+            
+        
+    }
+}
+class StearingWheel {
+    constructor(wheel_1, wheel_2, wheel_3, wheel_4) {
+        this.forvard = forvard
+       
+        lookForvard() {
+            if (this.forvard === forvard) {
+                console.log("передние колеса направлены прямо");
+            }
 
-//         lookForvard() {
-//             if (this.forvard === forvard) {
-//                 console.log("передние колеса направлены прямо");
-//             }
-
-//         }
-//         turnLeft() {
-//             if (this.left === left) {
-//                 console.log("передние колеса поворачивают влево");
-//                 this.isFrontWheel = left
-//             }
-//         }
-//     }
-// }
+        }
+        turnLeft() {
+            if (this.left === left) {
+                console.log("передние колеса поворачивают влево");
+                this.isFrontWheel = left
+            }
+        }
+    }
+}
 
 const wheels = [new Wheel(true), new Wheel(true), new Wheel(false), new Wheel(false)]
 
 const engine = new Engine(wheels)
 const btn = new StartBtn(engine)
-const car = new Car("", btn)
+const headlights = new Headlights(l1, l2)
+const lightBtn = new HeadLightsBtn(headlights)
+const car = new Car("", btn, lightBtn)
+
 // const sw = new StearingWheel(forvard, left, right)
 
