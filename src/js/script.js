@@ -430,59 +430,57 @@
 // console.log(hum1.sayName());
 // console.log(hum1.sayHello());
 // console.log(hum2.sayName());
-// console.log(hum2.sayHello());
-class Trainer {
-    constructor(name, dogArray) {
-        this.trainerName = name
-        this.dogs = dogArray
-    }
-    sayHello() {
-        console.log("Меня зовут " + this.trainerName);
-    }
-    makeSound() {
-        console.log(this.trainerName + ' сказал "голос"')
-        this.dogs.forEach((item) => {
-            item.barking()
-        });
-    }
-    waveHand() {
-        console.log(this.trainerName + ' помахал рукой');
-        this.dogs.forEach(item => {
-            item.wagging()
-        });
-    }
+// // console.log(hum2.sayHello());
+// class Trainer {
+//     constructor(name, dogArray) {
+//         this.trainerName = name
+//         this.dogs = dogArray
+//     }
+//     sayHello() {
+//         console.log("Меня зовут " + this.trainerName);
+//     }
+//     makeSound() {
+//         console.log(this.trainerName + ' сказал "голос"')
+//         this.dogs.forEach((item) => {
+//             item.barking()
+//         });
+//     }
+//     waveHand() {
+//         console.log(this.trainerName + ' помахал рукой');
+//         this.dogs.forEach(item => {
+//             item.wagging()
+//         });
+//     }
 
-}
-class Dog {
-    constructor(name) {
-        this.dogName = name
-    }
-    barking() {
-        console.log(this.dogName + ' говорит "гав"')
-    }
-    wagging() {
-        console.log(this.dogName + ' виляет хвостом')
-    }
-}
-let dog_1 = new Dog("Барсик")
-let dog_2 = new Dog("Рэкс")
-let dog_3 = new Dog("Барон")
+// }
+// class Dog {
+//     constructor(name) {
+//         this.dogName = name
+//     }
+//     barking() {
+//         console.log(this.dogName + ' говорит "гав"')
+//     }
+//     wagging() {
+//         console.log(this.dogName + ' виляет хвостом')
+//     }
+// }
+// let dog_1 = new Dog("Барсик")
+// let dog_2 = new Dog("Рэкс")
+// let dog_3 = new Dog("Барон")
 
-let dogs = []
-dogs.push(dog_1)
-dogs.push(dog_2)
-dogs.push(dog_3)
-// console.log(dogs);
+// let dogs = []
+// dogs.push(dog_1)
+// dogs.push(dog_2)
+// dogs.push(dog_3)
+// // console.log(dogs);
 
-let trainer = new Trainer("Александр", dogs)
-
-
+// let trainer = new Trainer("Александр", dogs)
 
 
 
 
-const l1 = document.querySelector('.lights1')
-const l2 = document.querySelector('.lights2')
+
+
 
 class Car {
     constructor(steeringWheel, startBtn, headlightsBtn) {
@@ -586,13 +584,36 @@ class Headlights {
 //     }
 // }
 
-const wheels = [new Wheel(true), new Wheel(true), new Wheel(false), new Wheel(false)]
+const l1 = document.querySelector('.lights1')
+const l2 = document.querySelector('.lights2')
+const toggleLights = document.querySelector('.light-btn')
+console.log('toggleLights: ', { toggleLights });
+const startCarbtn = document.querySelector('.start-stop')
+const engineview = document.querySelector('.engine')
 
+
+
+const wheels = [new Wheel(true), new Wheel(true), new Wheel(false), new Wheel(false)]
 const engine = new Engine(wheels)
 const btn = new StartBtn(engine)
 const headlights = new Headlights(l1, l2)
 const lightBtn = new HeadLightsBtn(headlights)
 const car = new Car("", btn, lightBtn)
+
+toggleLights.addEventListener("click", () => {
+    // console.log("клик");
+    toggleLights.classList.toggle("light-btn-active")
+    car.toggleLights()
+    console.log(toggleLights.classList);
+})
+startCarbtn.addEventListener("click", () => {
+    startCarbtn.classList.toggle("start-stop-active")
+    car.startCar()
+    engineview.classList.toggle("engine-active")
+
+})
+
+
 
 // const sw = new StearingWheel(forvard, left, right)
 
