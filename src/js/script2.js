@@ -1,10 +1,11 @@
 
 
 class Fruct {
-    constructor(color, size) {
+    constructor(color, size, number) {
         this.color = color
         this.size = size
         this.type = ""
+        this.number = number
     }
     getColor() {
         return this.color
@@ -14,6 +15,12 @@ class Fruct {
     }
     getType() {
         return this.type
+    }
+    getNumber() {
+        return this.number
+    }
+    setNumber(number) {
+        this.number = number
     }
     setColor(color) {
         this.color = color
@@ -26,17 +33,27 @@ class Fruct {
     }
 
 }
+let count = 0 
 const fructArray = []
+const o = "orange"
+const g = "grapefruit"
+for (let i = 0; i < 10; i++) {
+    const fruct = new Fruct(Math.round(Math.random() * (10 - 0) + 0), Math.round(Math.random() * (10 - 0) + 0), count++)
+    fruct.setType(o)
+    fructArray.push(fruct)
+}
+console.log(fructArray);
+for (let i = 0; i < 10; i++) {
+    const fruct = new Fruct(Math.round(Math.random() * (100 - 90) + 90), Math.round(Math.random() * (100 - 90) + 90), count++)
+    fruct.setType(g)
+    fructArray.push(fruct)
+}
+console.log(fructArray);
 
-for (let i = 0; i < 10; i++){
-    const fruct = new Fruct(10, 10)
-    fruct.setType("orange")
-    fructArray.push(fruct)
+function Neighbors(x1, y1, x2, y2) {
+    const distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+    return distance
 }
-console.log(fructArray);
-for (let i = 0; i < 10; i++){
-    const fruct = new Fruct(100, 100)
-    fruct.setType("grapefruit")
-    fructArray.push(fruct)
-}
-console.log(fructArray);
+
+function whatFruct (x, arrFruct)
+
