@@ -33,7 +33,7 @@ class Fruct {
     }
 
 }
-let count = 0 
+let count = 0
 const fructArray = []
 const o = "orange"
 const g = "grapefruit"
@@ -55,5 +55,30 @@ function Neighbors(x1, y1, x2, y2) {
     return distance
 }
 
-function whatFruct (x, arrFruct)
+function whatFruct(unkcnownFruct, Fructs) {
+    class DistObj {
+        constructor(dist, index) {
+            this.dist = dist
+            this.index = index
+        }
+        getDist() {
+            return this.dist
+        }
+        getIndex() {
+            return this.index
+        }
+        setDist(dist) {
+            this.dist = dist
+        }
+        settIndex(index) {
+            this.index = index
+        }
 
+    }
+    const distancesArray = []
+    for (let i = 0; i < 20; i++) {
+        distancesArray.push(new DistObj(Math.round(Neighbors(unkcnownFruct.getColor(), unkcnownFruct.getSize(), Fructs[i].getColor(), Fructs[i].getSize())), Fructs[i].getNumber()))
+    }
+    console.log(distancesArray);
+}
+whatFruct(new Fruct(Math.round(Math.random() * (100 - 90) + 90), Math.round(Math.random() * (100 - 90) + 90)), fructArray)
