@@ -81,8 +81,7 @@ body {
 .stearing-wheel {
     width: 190px;
     height: 190px;
-    background-image: url("../img/stearingwheel.png");
-    background-size: cover;
+    transition: all 1s;
 }
 .start-stop {
     width: 70px;

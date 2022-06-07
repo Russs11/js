@@ -531,6 +531,7 @@ class Wheel {
         this.rotate = false
         this.isFrontWheel = false
         isFront ? this.isFrontWheel = true : null
+        this.lookAd = 
     }
     toggleRotate() {
         this.rotate = !this.rotate;
@@ -561,14 +562,20 @@ class Headlights {
             this.light1.classList.remove('lights-active')
             this.light2.classList.remove('lights-active')
         }
-            
-        
     }
 }
+class StearingWheel {
+    constructor(wheelsArr) {
+        this.stearingWheelState = "lookForvard"
+        this.wheelsArr = wheelsArr
+
+    }
+}
+
 // class StearingWheel {
 //     constructor(wheel_1, wheel_2, wheel_3, wheel_4) {
 //         this.forvard = forvard
-       
+
 //         lookForvard() {
 //             if (this.forvard === forvard) {
 //                 console.log("передние колеса направлены прямо");
@@ -583,15 +590,17 @@ class Headlights {
 //         }
 //     }
 // }
+const stearingWheelView = document.querySelector('.stearing-wheel')
 
 const l1 = document.querySelector('.lights1')
 const l2 = document.querySelector('.lights2')
 const toggleLights = document.querySelector('.light-btn')
-console.log('toggleLights: ', { toggleLights });
 const startCarbtn = document.querySelector('.start-stop')
 const engineview = document.querySelector('.engine')
 
 
+
+console.log({ stearingWheelView });
 
 const wheels = [new Wheel(true), new Wheel(true), new Wheel(false), new Wheel(false)]
 const engine = new Engine(wheels)
@@ -613,7 +622,19 @@ startCarbtn.addEventListener("click", () => {
 
 })
 
+document.addEventListener("keydown", (event) => {
+    console.log({ event });
 
+    if (event.key === "ArrowRight") {
+        stearingWheelView.style.transform = 'rotate(' + 45 + 'deg)';
+    }
+    if (event.key === "ArrowLeft") {
+        stearingWheelView.style.transform = 'rotate(' + (-45) + 'deg)';
+    }
+    if (event.key === "ArrowUp") {
+        stearingWheelView.style.transform = 'rotate(' + 0 + 'deg)';
+    }
+})
 
 // const sw = new StearingWheel(forvard, left, right)
 
