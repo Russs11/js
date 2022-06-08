@@ -570,6 +570,9 @@ class StearingWheel {
         this.wheelsArr = wheelsArr
 
     }
+    stearingWheelTurn() {
+        if (this.stearingWheelState)
+    }
 }
 
 // class StearingWheel {
