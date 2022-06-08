@@ -576,6 +576,10 @@ class StearingWheel {
         if (way === "lookLeft") {
             this.stearingWheelState = "lookLeft"
         }
+        if (way === null) {
+            this.stearingWheelState = "lookForward"
+        }
+
     }
 }
 
@@ -613,7 +617,7 @@ document.addEventListener("keydown", (event) => {
 
     if (event.key === "ArrowRight") {
         stearingWheelView.style.transform = 'rotate(' + 45 + 'deg)';
-        stearWheel.stearingWheelTurn("lookRight") 
+        stearWheel.stearingWheelTurn("lookRight")
         console.log("колеса повернули направо", stearWheel)
 
     }
@@ -625,6 +629,8 @@ document.addEventListener("keydown", (event) => {
     }
     if (event.key === "ArrowUp") {
         stearingWheelView.style.transform = 'rotate(' + 0 + 'deg)';
+        stearWheel.stearingWheelTurn(null)
+        console.log("колеса направлены прямо", stearWheel)
     }
 })
 
