@@ -534,12 +534,13 @@ class Wheel {
     }
     toggleRotate() {
         this.rotate = !this.rotate;
-        let message = `${this.isFrontWheel ? "Переднее " : "Заднее "} ${this.rotate ? "колесо крутятся" : "колесо не крутятся"}`
+        let message = `${this.isFrontWheel ? "Передние " : "Задние "} ${this.rotate ? "колеса крутятся" : "колеса не крутятся"}`
         console.log(message);
     }
-    // lookForvard() {
+    // wheelsTurn() {
     //     if (this.isFrontWheel === true) {
-    //         console.log("передние колеса направлены прямо");
+    //         let message = `${this.isFrontWheel ? "Передние " } ${this.rotate ? "колеса поворачивают"}`
+    //         console.log(message);
     //     }
     // }
 }
