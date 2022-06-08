@@ -531,18 +531,17 @@ class Wheel {
         this.rotate = false
         this.isFrontWheel = false
         isFront ? this.isFrontWheel = true : null
-        this.lookAd = 
     }
     toggleRotate() {
         this.rotate = !this.rotate;
         let message = `${this.isFrontWheel ? "Переднее " : "Заднее "} ${this.rotate ? "колесо крутятся" : "колесо не крутятся"}`
         console.log(message);
     }
-    lookForvard() {
-        if (this.isFrontWheel === true) {
-            console.log("передние колеса направлены прямо");
-        }
-    }
+    // lookForvard() {
+    //     if (this.isFrontWheel === true) {
+    //         console.log("передние колеса направлены прямо");
+    //     }
+    // }
 }
 class Headlights {
     constructor(light1, light2) {
@@ -566,42 +565,26 @@ class Headlights {
 }
 class StearingWheel {
     constructor(wheelsArr) {
-        this.stearingWheelState = "lookForvard"
+        this.stearingWheelState = "lookForward"
         this.wheelsArr = wheelsArr
 
     }
-    stearingWheelTurn() {
-        if (this.stearingWheelState)
+    stearingWheelTurn(way) {
+        if (way === "lookRight") {
+            this.stearingWheelState = "lookRihgt"
+        }
+        if (way === "lookLeft") {
+            this.stearingWheelState = "lookLeft"
+        }
     }
 }
 
-// class StearingWheel {
-//     constructor(wheel_1, wheel_2, wheel_3, wheel_4) {
-//         this.forvard = forvard
-
-//         lookForvard() {
-//             if (this.forvard === forvard) {
-//                 console.log("передние колеса направлены прямо");
-//             }
-
-//         }
-//         turnLeft() {
-//             if (this.left === left) {
-//                 console.log("передние колеса поворачивают влево");
-//                 this.isFrontWheel = left
-//             }
-//         }
-//     }
-// }
 const stearingWheelView = document.querySelector('.stearing-wheel')
-
 const l1 = document.querySelector('.lights1')
 const l2 = document.querySelector('.lights2')
 const toggleLights = document.querySelector('.light-btn')
 const startCarbtn = document.querySelector('.start-stop')
 const engineview = document.querySelector('.engine')
-
-
 
 console.log({ stearingWheelView });
 
@@ -611,7 +594,7 @@ const btn = new StartBtn(engine)
 const headlights = new Headlights(l1, l2)
 const lightBtn = new HeadLightsBtn(headlights)
 const car = new Car("", btn, lightBtn)
-
+const stearWheel = new StearingWheel(wheels)
 toggleLights.addEventListener("click", () => {
     // console.log("клик");
     toggleLights.classList.toggle("light-btn-active")
@@ -630,9 +613,15 @@ document.addEventListener("keydown", (event) => {
 
     if (event.key === "ArrowRight") {
         stearingWheelView.style.transform = 'rotate(' + 45 + 'deg)';
+        stearWheel.stearingWheelTurn("lookRight") 
+        console.log("колеса повернули направо", stearWheel)
+
     }
     if (event.key === "ArrowLeft") {
         stearingWheelView.style.transform = 'rotate(' + (-45) + 'deg)';
+        stearWheel.stearingWheelTurn("lookLeft")
+        console.log("колеса повернули налево", stearWheel)
+
     }
     if (event.key === "ArrowUp") {
         stearingWheelView.style.transform = 'rotate(' + 0 + 'deg)';
