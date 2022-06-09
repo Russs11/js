@@ -64,7 +64,7 @@
 
 // Задача №4
 
-function Week(day) {
+function DayOfWeek(day) {
     if (day === 1){
         console.log("Понедельник ")
     } if (day === 2) {
@@ -82,4 +82,4 @@ function Week(day) {
     }
 }
 
-Week (3)
+DayOfWeek (3)
