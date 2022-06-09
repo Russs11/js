@@ -22,7 +22,7 @@
 // Задача №2
 // function Hello(name, lastname, age) {
 
-//     if (typeof Number(name) === "string") {        
+//     if (typeof Number(name) === "string") {
 //         console.log("Вы не ввели именя ");
 //     } else {
 //         if (age < 5) {
@@ -48,15 +48,38 @@
 
 // Задача №3
 
-function Gender(m, f) {
-    if (m === "M" && f === "F") {
-        console.log("Ваш пол мужской " + "," + " " + "Ваш пол женский ")
-    }
-    else {
-        if (m !== "M" && f === "F")
-            console.log("Ваш пол не определен  " + "," + " " + "Ваш пол женский ")
-        if (m === "M" && f !== "F")
-            console.log("Ваш пол мужской " + "," + " " + "Ваш пол не определен  ")
+// function Gender(m, f) {
+//     if (m === "M" && f === "F") {
+//         console.log("Ваш пол мужской " + "," + " " + "Ваш пол женский ")
+//     }
+//     else {
+//         if (m !== "M" && f === "F")
+//             console.log("Ваш пол не определен  " + "," + " " + "Ваш пол женский ")
+//         if (m === "M" && f !== "F")
+//             console.log("Ваш пол мужской " + "," + " " + "Ваш пол не определен  ")
+//     }
+// }
+// Gender("M", "F")
+
+
+// Задача №4
+
+function Week(day) {
+    if (day === 1){
+        console.log("Понедельник ")
+    } if (day === 2) {
+        console.log("Вторник ")
+    } if (day === 3) {
+        console.log("Среда ")
+    } if (day === 4) {
+        console.log("Четверг ")
+    } if (day === 5) {
+        console.log("Пятница ")
+    } if (day === 6) {
+        console.log("Суббота ")
+    } if (day === 7) {
+        console.log("Воскресенье ")
     }
 }
-Gender("M", "F")
+
+Week (3)
