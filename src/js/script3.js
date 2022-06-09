@@ -32,7 +32,7 @@
 
 //         }
 //     }
-//     if (!(typeof Number(lastname) === "string")) {
+//     if (typeof Number(lastname) === "string") {
 //         console.log("Вы ввели число вместо фамилии ");
 //     } else {
 //         if (age < 5) {
@@ -65,6 +65,7 @@
 // Задача №4
 
 function DayOfWeek(day) {
+
     if (day === 1){
         console.log("Понедельник ")
     } if (day === 2) {
@@ -79,7 +80,11 @@ function DayOfWeek(day) {
         console.log("Суббота ")
     } if (day === 7) {
         console.log("Воскресенье ")
+    } else {
+        if (day > 7 , day < 1) {
+            console.log("Введите число от 1 до 7 ")
+        }
     }
 }
 
-DayOfWeek (3)
+DayOfWeek (-2)
