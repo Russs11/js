@@ -22,9 +22,8 @@
 // Задача №2
 function Hello(name, lastname, age) {
 
-    if (!(typeof Number(name) === "string" )) {
-        
-        console.log("Вы ввели число вместо имени ");
+    if (typeof Number(name) === "string") {        
+        console.log("Вы не ввели именя ");
     } else {
         if (age < 5) {
             console.log("Привет " + name + " " + lastname + " с возрастом " + age + " года")
