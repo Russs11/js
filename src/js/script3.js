@@ -81,10 +81,13 @@ function DayOfWeek(day) {
     } if (day === 7) {
         console.log("Воскресенье ")
     } else {
-        if (day > 7 , day < 1) {
+        if (day > 7) {
+            console.log("Введите число от 1 до 7 ")
+        }
+        if (day < 1) {
             console.log("Введите число от 1 до 7 ")
         }
     }
 }
 
-DayOfWeek (-2)
+DayOfWeek (1)
