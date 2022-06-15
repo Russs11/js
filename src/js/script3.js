@@ -152,3 +152,48 @@
 
 // Задача №7
 // Вывести числа от 1 до 100 в столбец.К каждой цифре подписать состояние возраста(1 - 17 ребенок, 18 - 30 - молодой, 30 - 55 - зрелый, от 55 - старый).Например. 33 - зрелый
+
+// function Age() {
+//     for (i = 1; i < 101; i++){
+//         let j = " - ребенок"
+//         let y = " - молодой"
+//         let o = " - зрелый"
+//         let s = " - старый"
+//         if (i < 18) {
+//             console.log(i + j)
+//         }
+//         if (i > 17 && i < 31) {
+//             console.log(i + y)
+//         }
+//         if (i > 30 && i < 56) {
+//             console.log(i + o)
+//         }
+//         if (i > 55 && i < 101) {
+//             console.log(i + s)
+//         }
+//     }
+// }
+function Age(num) {
+    let age = ''
+    if (num < 18) {
+        age = ' - ребенок'
+    }
+    if (num > 17 && num < 31) {
+        age = " - молодой"
+    }
+    if (num > 30 && num < 56) {
+        age = " - зрелый"
+    }
+    if (num > 55 ) {
+        age = " - старый"
+    }
+    return age
+}
+// Age()
+
+function HelloNameAge(name, age) {
+    
+    console.log(name + Age(age))
+}
+
+HelloNameAge('Вася', 102)
