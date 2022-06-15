@@ -173,27 +173,36 @@
 //         }
 //     }
 // }
-function Age(num) {
-    let age = ''
-    if (num < 18) {
-        age = ' - ребенок'
-    }
-    if (num > 17 && num < 31) {
-        age = " - молодой"
-    }
-    if (num > 30 && num < 56) {
-        age = " - зрелый"
-    }
-    if (num > 55 ) {
-        age = " - старый"
-    }
-    return age
-}
-// Age()
+// function Age(num) {
+//     let age = ''
+//     if (num < 18) {
+//         age = ' - ребенок'
+//     }
+//     if (num > 17 && num < 31) {
+//         age = " - молодой"
+//     }
+//     if (num > 30 && num < 56) {
+//         age = " - зрелый"
+//     }
+//     if (num > 55 ) {
+//         age = " - старый"
+//     }
+//     return age
+// }
+// // Age()
 
-function HelloNameAge(name, age) {
-    
-    console.log(name + Age(age))
-}
+// function HelloNameAge(name, age) {
 
-HelloNameAge('Вася', 102)
+//     console.log(name + Age(age))
+// }
+
+// HelloNameAge('Вася', 102)
+
+// Задача про улитку
+
+function Snail() {
+    // let DayArrow = []
+    for (d = 1; d < 101; d++) {
+        console.log(d)
+    }
+}
