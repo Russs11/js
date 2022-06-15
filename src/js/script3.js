@@ -199,10 +199,29 @@
 // HelloNameAge('Вася', 102)
 
 // Задача про улитку
-
 function Snail() {
-    // let DayArrow = []
-    for (d = 1; d < 101; d++) {
-        console.log(d)
+    let whatDayArr = []
+    let dayWeather = ""
+    for (i = 0; i < 100; i++) {
+        const whatDay = (Math.ceil(Math.random() * 100))
+        if (whatDay < 51) {
+            dayWeather = " плохая погода"
+        }
+        if (whatDay > 50) {
+            dayWeather = " хорошая погода"
+        }
+        whatDayArr.push(dayWeather)
     }
+    for (j = 0; j < whatDayArr.length; j++){
+        if (whatDayArr[j] === " хорошая погода") {
+            console.log("улитка движется вверх на 2 см")
+        }
+        if (whatDayArr[j] === " плохая погода") {
+            console.log("улитка вниз на 1 см")
+            
+        }
+        
+    }
+
 }
+Snail()
