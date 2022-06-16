@@ -199,29 +199,57 @@
 // HelloNameAge('Вася', 102)
 
 // Задача про улитку
-function Snail() {
-    let whatDayArr = []
-    let dayWeather = ""
-    for (i = 0; i < 100; i++) {
-        const whatDay = (Math.ceil(Math.random() * 100))
-        if (whatDay < 51) {
-            dayWeather = " плохая погода"
-        }
-        if (whatDay > 50) {
-            dayWeather = " хорошая погода"
-        }
-        whatDayArr.push(dayWeather)
-    }
-    for (j = 0; j < whatDayArr.length; j++){
-        if (whatDayArr[j] === " хорошая погода") {
-            console.log("улитка движется вверх на 2 см")
-        }
-        if (whatDayArr[j] === " плохая погода") {
-            console.log("улитка вниз на 1 см")
-            
-        }
-        
-    }
+// function Snail() {
+//     let whatDayArr = []
+//     let dayWeather = ""
+//     for (i = 0; i < 100; i++) {
+//         const whatDay = (Math.ceil(Math.random() * 100))
+//         if (whatDay < 51) {
+//             dayWeather = " плохая погода"
+//         }
+//         if (whatDay > 50) {
+//             dayWeather = " хорошая погода"
+//         }
+//         whatDayArr.push(dayWeather)
+//     }
+//     for (j = 0; j < whatDayArr.length; j++){
+//         if (whatDayArr[j] === " хорошая погода") {
+//             console.log("улитка движется вверх на 2 см")
+//         }
+//         if (whatDayArr[j] === " плохая погода") {
+//             console.log("улитка вниз на 1 см")
+//         }
+//     }
 
+// }
+// Snail()
+
+// Задача на масивы
+// Задача №1
+let numbersArr = [2, 4, 6, 8]
+function evenNumber(nums) {
+    let whatNumber = 0
+
+    nums.forEach(item => {
+        whatNumber += item
+    });
+
+    (whatNumber % 2) === 0 ? console.log("все элементы четные") : console.log("есть не четные элементы")
+
+    // if (whatNumber % 2 === 0)
+    //     console.log("все элементы четные")
+    // else
+    //     console.log("есть не четные элементы")
+
+    // for (i = 0; i < numbersArr.length; i++) {
+    //     if ((numbersArr[i] % 2) === 0) {
+    //         whatNumber = "все элементы четные"
+    //     } if ((numbersArr[i] % 2) === 1) {
+    //         whatNumber = "есть не четные элементы"
+    //         break
+    //     }
+
+    // }
+    // console.log(whatNumber);
 }
-Snail()
+evenNumber(numbersArr)
