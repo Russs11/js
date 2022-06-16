@@ -226,30 +226,30 @@
 
 // Задача на масивы
 // Задача №1
-let numbersArr = [2, 4, 6, 8]
-function evenNumber(nums) {
-    let whatNumber = 0
+// let numbersArr = [2, 4, 6, 8]
+// function evenNumber(nums) {
+//     let whatNumber = 0
 
-    nums.forEach(item => {
-        whatNumber += item
-    });
+//     nums.forEach(item => {
+//         whatNumber += item
+//     });
 
-    (whatNumber % 2) === 0 ? console.log("все элементы четные") : console.log("есть не четные элементы")
+//     (whatNumber % 2) === 0 ? console.log("все элементы четные") : console.log("есть не четные элементы")
 
-    // if (whatNumber % 2 === 0)
-    //     console.log("все элементы четные")
-    // else
-    //     console.log("есть не четные элементы")
+//     // if (whatNumber % 2 === 0)
+//     //     console.log("все элементы четные")
+//     // else
+//     //     console.log("есть не четные элементы")
 
-    // for (i = 0; i < numbersArr.length; i++) {
-    //     if ((numbersArr[i] % 2) === 0) {
-    //         whatNumber = "все элементы четные"
-    //     } if ((numbersArr[i] % 2) === 1) {
-    //         whatNumber = "есть не четные элементы"
-    //         break
-    //     }
+//     // for (i = 0; i < numbersArr.length; i++) {
+//     //     if ((numbersArr[i] % 2) === 0) {
+//     //         whatNumber = "все элементы четные"
+//     //     } if ((numbersArr[i] % 2) === 1) {
+//     //         whatNumber = "есть не четные элементы"
+//     //         break
+//     //     }
 
-    // }
-    // console.log(whatNumber);
-}
-evenNumber(numbersArr)
+//     // }
+//     // console.log(whatNumber);
+// }
+// evenNumber(numbersArr)
