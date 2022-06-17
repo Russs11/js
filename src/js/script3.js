@@ -199,29 +199,88 @@
 // HelloNameAge('Вася', 102)
 
 // Задача про улитку
-function Snail() {
-    let whatDayArr = []
-    let dayWeather = ""
-    for (i = 0; i < 100; i++) {
-        const whatDay = (Math.ceil(Math.random() * 100))
-        if (whatDay < 51) {
-            dayWeather = " плохая погода"
-        }
-        if (whatDay > 50) {
-            dayWeather = " хорошая погода"
-        }
-        whatDayArr.push(dayWeather)
-    }
-    for (j = 0; j < whatDayArr.length; j++){
-        if (whatDayArr[j] === " хорошая погода") {
-            console.log("улитка движется вверх на 2 см")
-        }
-        if (whatDayArr[j] === " плохая погода") {
-            console.log("улитка вниз на 1 см")
-            
-        }
-        
-    }
 
+
+// let whatDayArr = []
+// let dayWeather = ""
+// let snail = 100
+// function SnailOnTree() {
+//     for (i = 0; i < 365; i++) {
+//         const whatDay = (Math.random())
+//         if (whatDay < 0.3) {
+//             dayWeather = false
+//         }
+//         if (whatDay > 0.7) {
+//             dayWeather = true
+//         }
+//         whatDayArr.push(dayWeather)
+//     }
+//     for (j = 0; j < whatDayArr.length; j++) {
+//         if (whatDayArr[j] === true) {
+//             snail += 2
+//             if (snail > 300) {
+//                 snail = 300
+//             }
+//         }
+//         else {
+//             snail -= 3
+//             if (snail <= 0) {
+//                 snail = 0
+//             }
+//         }
+//     }
+//     console.log(snail)
+// }
+// SnailOnTree()
+
+// Задача на масивы
+// Задача №1
+// let numbersArr = [2, 6, 4, 6, 8]
+// function evenNumber(nums) {
+//     let whatNumber = 0
+//     let res = true
+//     nums.forEach(item => {
+//         (item % 2) === 1 ? res = false : null
+//     });
+
+//     res ? console.log("все элементы четные") : console.log("есть не четные элементы")
+
+//     // if (whatNumber % 2 === 0)
+//     //     console.log("все элементы четные")
+//     // else
+//     //     console.log("есть не четные элементы")
+
+//     // for (i = 0; i < numbersArr.length; i++) {
+//     //     if ((numbersArr[i] % 2) === 0) {
+//     //         whatNumber = "все элементы четные"
+//     //     } if ((numbersArr[i] % 2) === 1) {
+//     //         whatNumber = "есть не четные элементы"
+//     //         break
+//     //     }
+
+//     // }
+//     // console.log(whatNumber);
+// }
+// evenNumber(numbersArr)
+
+
+// 1 - Сделай функцию, которая принимает массив любых целых чисел, которая возращает истинну, если все элементы четные, если бы хотя бы один элемент не четный, то false.
+
+// 3 - Сделай функцию, которая принимает массив любых целых чисел, которая возращает новый массив, где все элементы кратны пяти. ([1, 2, 5, 12, 15, 21] вернет[5, 15])
+let fiveArr = [1, 2, 5, 12, 15, 21, 25]
+function five(arr) {
+    let resArr = []    
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i] % 5 === 0) {
+            arr.push(arr[i])
+        } 
+    }
+    console.log(resArr)  
 }
-Snail()
+five(fiveArr)
+five([1,3,5,7,9,10,13,15])
+
+
+// 4 - Написать функцию, которая принимает массив чисел, например[1, 2, 3, 4, 5] и функция возращает среднее арифметическое, (округлить результат до десятых)
+// 5 - Написать функцию, которая принимает массив чисел, например[1, 2, 3, 4, 5], и переносит первый элемент массива в конец(например можно засунуть первый элемент в конец, затем удалить первый элемент), попробуй несколькими способами сделать, если догадаешься
+// 6 - Написать функцию, которая принимает массив сотрудников, каждый сотрудник имеет имя и возраст([{ name: 'Иван', age: 23 }, ...]) и возвращает массим, где каждый элемент представляет из себя строку "Имя: Иван, возвраст: 23".
