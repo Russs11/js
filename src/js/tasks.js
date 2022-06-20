@@ -33,10 +33,10 @@ class Snail {
         this.heightOnTree = value
     }
     goUp() {
-        this.heightOnTree += 5
+        this.heightOnTree += (Math.random() * (10 - 1) + 1)
     }
     goDown() {
-        this.heightOnTree -= 3
+        this.heightOnTree -= (Math.random() * (10 - 1) + 1)
     }
     greating() {
         console.log("Hello");
