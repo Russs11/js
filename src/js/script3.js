@@ -268,17 +268,21 @@
 
 // 3 - Сделай функцию, которая принимает массив любых целых чисел, которая возращает новый массив, где все элементы кратны пяти. ([1, 2, 5, 12, 15, 21] вернет[5, 15])
 let fiveArr = [1, 2, 5, 12, 15, 21, 25]
-function FiveNum(arr) {
-    let resArr = []    
-    for (i = 0; i < arr.length; i++) {
-        if (arr[i] % 5 === 0) {
-            arr.push(arr[i])
-        } 
-    }
-    console.log(resArr)  
+function FiveNumber(arr) {
+    let resArr = arr.filter(item => {
+        if (item % 5 === 0)
+            return item
+    })
+
+    // for (i = 0; i < arr.length; i++) {
+    //     if (arr[i] % 5 === 0) {
+    //         resArr.push(arr[i])
+    //     }
+    // }
+    console.log(resArr)
 }
-FiveNum(fiveArr)
-FiveNum([1,3,5,7,9,10,13,15])
+FiveNumber(fiveArr)
+FiveNumber([1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 24, 25, 30])
 
 
 // 4 - Написать функцию, которая принимает массив чисел, например[1, 2, 3, 4, 5] и функция возращает среднее арифметическое, (округлить результат до десятых)
