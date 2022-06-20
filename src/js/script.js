@@ -537,12 +537,24 @@ class Wheel {
         let message = `${this.isFrontWheel ? "Передние " : "Задние "} ${this.rotate ? "колеса крутятся" : "колеса не крутятся"}`
         console.log(message);
     }
-    // wheelsTurn() {
-    //     if (this.isFrontWheel === true) {
-    //         let message = `${this.isFrontWheel ? "Передние " } ${this.rotate ? "колеса поворачивают"}`
-    //         console.log(message);
-    //     }
-    // }
+    wheelsTurnRight() {
+        if (this.isFrontWheel === true) {
+            console.log( "колеса поворачивают направо")
+           
+        }
+    }
+    wheelsTurnLeft() {
+        if (this.isFrontWheel === true) {
+            console.log( "колеса поворачивают налево")
+           
+        }
+    }
+    wheelsTurnForward() {
+        if (this.isFrontWheel === true) {
+            console.log( "колеса направлены прямо")
+           
+        }
+    }
 }
 class Headlights {
     constructor(light1, light2) {
@@ -565,20 +577,31 @@ class Headlights {
     }
 }
 class StearingWheel {
+    stearingWheelState;
+    wheelsArr;
     constructor(wheelsArr) {
         this.stearingWheelState = "lookForward"
         this.wheelsArr = wheelsArr
 
     }
     stearingWheelTurn(way) {
-        if (way === "lookRight") {
+        if (way === "Right") {
             this.stearingWheelState = "lookRihgt"
+            this.wheelsArr.forEach(item => {
+                item.wheelsTurnRight()
+            })
         }
-        if (way === "lookLeft") {
+        if (way === "Left") {
             this.stearingWheelState = "lookLeft"
+            this.wheelsArr.forEach(item => {
+                item.wheelsTurnLeft()
+            })
         }
         if (way === null) {
             this.stearingWheelState = "lookForward"
+            this.wheelsArr.forEach(item => {
+                item.wheelsTurnForward()
+            })
         }
 
     }
@@ -618,20 +641,20 @@ document.addEventListener("keydown", (event) => {
 
     if (event.key === "ArrowRight") {
         stearingWheelView.style.transform = 'rotate(' + 45 + 'deg)';
-        stearWheel.stearingWheelTurn("lookRight")
-        console.log("колеса повернули направо", stearWheel)
+        stearWheel.stearingWheelTurn("Right")
+        // console.log("колеса повернули направо", stearWheel)
 
     }
     if (event.key === "ArrowLeft") {
         stearingWheelView.style.transform = 'rotate(' + (-45) + 'deg)';
-        stearWheel.stearingWheelTurn("lookLeft")
-        console.log("колеса повернули налево", stearWheel)
+        stearWheel.stearingWheelTurn("Left")
+        // console.log("колеса повернули налево", stearWheel)
 
     }
     if (event.key === "ArrowUp") {
         stearingWheelView.style.transform = 'rotate(' + 0 + 'deg)';
         stearWheel.stearingWheelTurn(null)
-        console.log("колеса направлены прямо", stearWheel)
+        // console.log("колеса направлены прямо", stearWheel)
     }
 })
 
