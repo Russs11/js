@@ -527,10 +527,14 @@ class Engine {
     }
 }
 class Wheel {
+    wheelsPosition = "forward";
+    // wheelsVeiw;
     constructor(isFront) {
+        // console.log(wheel)
         this.rotate = false
         this.isFrontWheel = false
         isFront ? this.isFrontWheel = true : null
+
     }
     toggleRotate() {
         this.rotate = !this.rotate;
@@ -539,22 +543,27 @@ class Wheel {
     }
     wheelsTurnRight() {
         if (this.isFrontWheel === true) {
-            console.log( "колеса поворачивают направо")
-           
+            console.log("колеса поворачивают вправо")
+            this.wheelsPosition = "right"
+            // this.wheelsVeiw.classList.add("wheel-right")
         }
     }
     wheelsTurnLeft() {
         if (this.isFrontWheel === true) {
-            console.log( "колеса поворачивают налево")
-           
+            console.log("колеса поворачивают влево")
+            this.wheelsPosition = "left"
         }
     }
     wheelsTurnForward() {
         if (this.isFrontWheel === true) {
-            console.log( "колеса направлены прямо")
-           
+            console.log("колеса направлены прямо")
+            this.wheelsPosition = "forward"
         }
     }
+    getIsFrontWheel() {
+        return this.isFrontWheel
+    }
+
 }
 class Headlights {
     constructor(light1, light2) {
@@ -606,7 +615,7 @@ class StearingWheel {
 
     }
 }
-
+const wheelsArrView = document.querySelectorAll('.wheel')
 const stearingWheelView = document.querySelector('.stearing-wheel')
 const l1 = document.querySelector('.lights1')
 const l2 = document.querySelector('.lights2')
@@ -642,18 +651,32 @@ document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowRight") {
         stearingWheelView.style.transform = 'rotate(' + 45 + 'deg)';
         stearWheel.stearingWheelTurn("Right")
+        wheelsArrView[0].classList.remove("wheel-left")
+        wheelsArrView[1].classList.remove("wheel-left")
+        wheelsArrView[0].classList.add("wheel-right")
+        wheelsArrView[1].classList.add("wheel-right")
+        
+
         // console.log("колеса повернули направо", stearWheel)
 
     }
     if (event.key === "ArrowLeft") {
         stearingWheelView.style.transform = 'rotate(' + (-45) + 'deg)';
         stearWheel.stearingWheelTurn("Left")
+        wheelsArrView[0].classList.remove("wheel-right")
+        wheelsArrView[1].classList.remove("wheel-right")
+        wheelsArrView[0].classList.add("wheel-left")
+        wheelsArrView[1].classList.add("wheel-left")
         // console.log("колеса повернули налево", stearWheel)
 
     }
     if (event.key === "ArrowUp") {
         stearingWheelView.style.transform = 'rotate(' + 0 + 'deg)';
         stearWheel.stearingWheelTurn(null)
+        wheelsArrView[0].classList.remove("wheel-left")
+        wheelsArrView[1].classList.remove("wheel-left")
+        wheelsArrView[0].classList.remove("wheel-right")
+        wheelsArrView[1].classList.remove("wheel-right")
         // console.log("колеса направлены прямо", stearWheel)
     }
 })
