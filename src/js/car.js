@@ -528,13 +528,11 @@ class Engine {
 }
 class Wheel {
     wheelsPosition = "forward";
-    // wheelsVeiw;
     constructor(isFront) {
-        // console.log(wheel)
         this.rotate = false
         this.isFrontWheel = false
         isFront ? this.isFrontWheel = true : null
-
+        
     }
     toggleRotate() {
         this.rotate = !this.rotate;
@@ -545,7 +543,6 @@ class Wheel {
         if (this.isFrontWheel === true) {
             console.log("колеса поворачивают вправо")
             this.wheelsPosition = "right"
-            // this.wheelsVeiw.classList.add("wheel-right")
         }
     }
     wheelsTurnLeft() {
@@ -615,7 +612,62 @@ class StearingWheel {
 
     }
 }
+class Wheel2{
+    wheelsArr
+    constructor(arr) {
+        this.wheelsArr = arr
+    }
+
+    getWheelsArr() {
+        return this.wheelsArr;
+    }
+    setWheelsArr(value) {
+        this.wheelsArr = value;
+    }
+    turnWheelsRight() {
+        this.wheelsArr.forEach(item => {
+            item.classList.add('wheel-right')
+        })
+    }
+    turnWheelsLeft() {
+        this.wheelsArr.forEach(item => {
+            item.classList.add('wheel-left')
+        })
+    }
+}
+class Wheel3{
+    wheel
+    constructor(wheel) {
+        this.wheel = wheel
+    }
+    
+    getWheel() {
+        return this.wheel;
+    }
+    setWheel(value) {
+        this.wheel = value;
+    }
+    turnWheelRight() {
+        this.wheel.classList.remove('wheel-left')
+        this.wheel.classList.add('wheel-right')
+    }
+    turnWheelLeft() {
+        this.wheel.classList.remove('wheel-right')
+        this.wheel.classList.add('wheel-left')
+    }
+}
 const wheelsArrView = document.querySelectorAll('.wheel')
+const w = new Wheel2(wheelsArrView)
+const w2 = new Wheel2(wheelsArrView)
+const w3 = new Wheel3(wheelsArrView[1])
+w.turnWheelsRight()
+setTimeout(() => {
+    w2.turnWheelsLeft()    
+}, 1000)
+setTimeout(() => {
+    w3.turnWheelRight()    
+}, 2000)
+
 const stearingWheelView = document.querySelector('.stearing-wheel')
 const l1 = document.querySelector('.lights1')
 const l2 = document.querySelector('.lights2')
@@ -623,7 +675,7 @@ const toggleLights = document.querySelector('.light-btn')
 const startCarbtn = document.querySelector('.start-stop')
 const engineview = document.querySelector('.engine')
 
-console.log({ stearingWheelView });
+// console.log({ stearingWheelView });
 
 const wheels = [new Wheel(true), new Wheel(true), new Wheel(false), new Wheel(false)]
 const engine = new Engine(wheels)
