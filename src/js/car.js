@@ -522,8 +522,24 @@ class Engine {
     }
     toggleEngine() {
         this.OnOf = !this.OnOf;
-        this.OnOf ? console.log("двигатель включен") : console.log("двигатель выключен")
-        this.wheelsArr.forEach((item) => { item.toggleRotate() })
+        this.OnOf ? console.log("двигатель запущен") : console.log("двигатель остановлен")
+        // this.wheelsArr.forEach((item) => { item.toggleRotate() })
+    }
+}
+class DriveBrake {
+    wheelsArr;
+    constructor(wheelsArr) {
+        this.driveBrake = false
+        this.wheelsArr = wheelsArr
+    }
+    DriveBrake(value) {
+        if (value === "Drive") {
+            this.wheelsArr.forEach((item) => { item.toggleRotate() })
+            console.log("газ")
+        } else {
+            this.wheelsArr.forEach((item) => { item.toggleRotate() })
+            console.log("тормоз")
+        }
     }
 }
 class Wheel {
@@ -532,7 +548,7 @@ class Wheel {
         this.rotate = false
         this.isFrontWheel = false
         isFront ? this.isFrontWheel = true : null
-        
+
     }
     toggleRotate() {
         this.rotate = !this.rotate;
@@ -612,7 +628,7 @@ class StearingWheel {
 
     }
 }
-class Wheel2{
+class Wheel2 {
     wheelsArr
     constructor(arr) {
         this.wheelsArr = arr
@@ -635,12 +651,12 @@ class Wheel2{
         })
     }
 }
-class Wheel3{
+class Wheel3 {
     wheel
     constructor(wheel) {
         this.wheel = wheel
     }
-    
+
     getWheel() {
         return this.wheel;
     }
@@ -656,17 +672,18 @@ class Wheel3{
         this.wheel.classList.add('wheel-left')
     }
 }
+
 const wheelsArrView = document.querySelectorAll('.wheel')
-const w = new Wheel2(wheelsArrView)
-const w2 = new Wheel2(wheelsArrView)
-const w3 = new Wheel3(wheelsArrView[1])
-w.turnWheelsRight()
-setTimeout(() => {
-    w2.turnWheelsLeft()    
-}, 1000)
-setTimeout(() => {
-    w3.turnWheelRight()    
-}, 2000)
+// const w = new Wheel2(wheelsArrView)
+// const w2 = new Wheel2(wheelsArrView)
+// const w3 = new Wheel3(wheelsArrView[1])
+// w.turnWheelsRight()
+// setTimeout(() => {
+//     w2.turnWheelsLeft()    
+// }, 1000)
+// setTimeout(() => {
+//     w3.turnWheelRight()    
+// }, 2000)
 
 const stearingWheelView = document.querySelector('.stearing-wheel')
 const l1 = document.querySelector('.lights1')
@@ -678,7 +695,8 @@ const engineview = document.querySelector('.engine')
 // console.log({ stearingWheelView });
 
 const wheels = [new Wheel(true), new Wheel(true), new Wheel(false), new Wheel(false)]
-const engine = new Engine(wheels)
+const engine = new Engine()
+const driveBrake = new DriveBrake(wheels)
 const btn = new StartBtn(engine)
 const headlights = new Headlights(l1, l2)
 const lightBtn = new HeadLightsBtn(headlights)
@@ -707,7 +725,7 @@ document.addEventListener("keydown", (event) => {
         wheelsArrView[1].classList.remove("wheel-left")
         wheelsArrView[0].classList.add("wheel-right")
         wheelsArrView[1].classList.add("wheel-right")
-        
+
 
         // console.log("колеса повернули направо", stearWheel)
 
@@ -731,7 +749,21 @@ document.addEventListener("keydown", (event) => {
         wheelsArrView[1].classList.remove("wheel-right")
         // console.log("колеса направлены прямо", stearWheel)
     }
+    if (event.key === "w") {
+        driveBrake.DriveBrake("Drive")
+        console.log(driveBrake)
+    }
+    if (event.key === "s") {
+        driveBrake.DriveBrake("Brake")
+        console.log(driveBrake)
+    }
 })
-
+// document.addEventListener("keyup", (event) => {
+//     if (event.key === "w") {
+//         driveBrake.DriveBrake("Drive")
+//         console.log(driveBrake)
+//     }
+//     console.log({ event });
+// })
 // const sw = new StearingWheel(forvard, left, right)
 
