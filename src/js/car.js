@@ -525,6 +525,9 @@ class Engine {
         this.OnOf ? console.log("двигатель запущен") : console.log("двигатель остановлен")
         // this.wheelsArr.forEach((item) => { item.toggleRotate() })
     }
+    getEngineState() {
+        return this.onOf
+    }
 }
 class DriveBrake {
     wheelsArr;
@@ -534,11 +537,13 @@ class DriveBrake {
     }
     DriveBrake(value) {
         if (value === "Drive") {
-            this.wheelsArr.forEach((item) => { item.toggleRotate() })
             console.log("газ")
-        } else {
             this.wheelsArr.forEach((item) => { item.toggleRotate() })
+
+        } else {
             console.log("тормоз")
+            this.wheelsArr.forEach((item) => { item.toggleRotate() })
+
         }
     }
 }
