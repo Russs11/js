@@ -756,11 +756,11 @@ document.addEventListener("keydown", (event) => {
     }
     if (event.key === "w") {
         driveBrake.DriveBrake("Drive")
-        console.log(driveBrake)
+        // console.log(driveBrake)
     }
     if (event.key === "s") {
         driveBrake.DriveBrake("Brake")
-        console.log(driveBrake)
+        // console.log(driveBrake)
     }
 })
 // document.addEventListener("keyup", (event) => {
