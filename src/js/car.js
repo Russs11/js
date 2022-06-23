@@ -745,15 +745,6 @@ document.addEventListener("keydown", (event) => {
         // console.log("колеса повернули налево", stearWheel)
 
     }
-    if (event.key === "ArrowUp") {
-        stearingWheelView.style.transform = 'rotate(' + 0 + 'deg)';
-        stearWheel.stearingWheelTurn(null)
-        wheelsArrView[0].classList.remove("wheel-left")
-        wheelsArrView[1].classList.remove("wheel-left")
-        wheelsArrView[0].classList.remove("wheel-right")
-        wheelsArrView[1].classList.remove("wheel-right")
-        // console.log("колеса направлены прямо", stearWheel)
-    }
     if (event.key === "w") {
         driveBrake.DriveBrake("Drive")
         // console.log(driveBrake)
@@ -763,12 +754,27 @@ document.addEventListener("keydown", (event) => {
         // console.log(driveBrake)
     }
 })
-// document.addEventListener("keyup", (event) => {
-//     if (event.key === "w") {
-//         driveBrake.DriveBrake("Drive")
-//         console.log(driveBrake)
-//     }
-//     console.log({ event });
-// })
-// const sw = new StearingWheel(forvard, left, right)
+document.addEventListener("keyup", (event) => {
+    if (event.key === "ArrowRight") {
+        stearingWheelView.style.transform = 'rotate(' + 0 + 'deg)';
+        stearWheel.stearingWheelTurn(null)
+        wheelsArrView[0].classList.remove("wheel-left")
+        wheelsArrView[1].classList.remove("wheel-left")
+        wheelsArrView[0].classList.remove("wheel-right")
+        wheelsArrView[1].classList.remove("wheel-right")
+
+        // console.log("колеса повернули направо", stearWheel)
+    }
+    if (event.key === "ArrowLeft") {
+        stearingWheelView.style.transform = 'rotate(' + 0 + 'deg)';
+        stearWheel.stearingWheelTurn(null)
+        wheelsArrView[0].classList.remove("wheel-left")
+        wheelsArrView[1].classList.remove("wheel-left")
+        wheelsArrView[0].classList.remove("wheel-right")
+        wheelsArrView[1].classList.remove("wheel-right")
+
+        // console.log("колеса повернули направо", stearWheel)
+    }
+})
+
 
