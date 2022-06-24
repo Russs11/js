@@ -538,11 +538,17 @@ class DriveBrake {
     DriveBrake(value) {
         if (value === "Drive") {
             console.log("газ")
-            this.wheelsArr.forEach((item) => { item.toggleRotate() })
+            this.wheelsArr.forEach((item) => {
+                if (item.getRotate() === false)
+                    item.toggleRotate()
+            })
 
         } else {
             console.log("тормоз")
-            this.wheelsArr.forEach((item) => { item.toggleRotate() })
+            this.wheelsArr.forEach((item) => {
+                if (item.getRotate() === true)
+                    item.toggleRotate()
+            })
 
         }
     }
@@ -579,6 +585,9 @@ class Wheel {
     }
     getIsFrontWheel() {
         return this.isFrontWheel
+    }
+    getRotate() {
+        return this.rotate
     }
 
 }
