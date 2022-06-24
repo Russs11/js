@@ -552,7 +552,7 @@ class Wheel {
     constructor(isFront) {
         this.rotate = false
         this.isFrontWheel = false
-        isFront ? this.isFrontWheel = true : nu
+        isFront ? this.isFrontWheel = true : null
     }
     toggleRotate() {
         this.rotate = !this.rotate;
