@@ -483,10 +483,11 @@
 
 
 class Car {
-    constructor(steeringWheel, startBtn, headlightsBtn) {
+    constructor(steeringWheel, startBtn, headlightsBtn, driveBrake) {
         this.steeringWheel = steeringWheel
         this.startBtn = startBtn
         this.headlightsBtn = headlightsBtn
+        this.driveBrake = driveBrake
     }
     startCar() {
         this.startBtn.toggleOnOf()
@@ -517,12 +518,12 @@ class HeadLightsBtn {
 }
 class Engine {
     constructor(wheelsArr) {
-        this.OnOf = false
+        this.onOf = false
         this.wheelsArr = wheelsArr
     }
     toggleEngine() {
-        this.OnOf = !this.OnOf;
-        this.OnOf ? console.log("двигатель запущен") : console.log("двигатель остановлен")
+        this.onOf = !this.onOf;
+        this.onOf ? console.log("двигатель запущен") : console.log("двигатель остановлен")
         // this.wheelsArr.forEach((item) => { item.toggleRotate() })
     }
     getEngineState() {
@@ -531,25 +532,31 @@ class Engine {
 }
 class DriveBrake {
     wheelsArr;
-    constructor(wheelsArr) {
+    constructor(wheelsArr, engine) {
         this.driveBrake = false
         this.wheelsArr = wheelsArr
+        this.engine = engine
+
     }
     DriveBrake(value) {
-        if (value === "Drive") {
+
+        if (value === "Drive" && this.engine.getEngineState() === true) {
             console.log("газ")
             this.wheelsArr.forEach((item) => {
                 if (item.getRotate() === false)
                     item.toggleRotate()
             })
 
+        } else if (value === "Drive" && this.engine.getEngineState() === false) {
+            alert("двигатель не запущен")
+
+
         } else {
-            console.log("тормоз")
+            console.log("тормоз");
             this.wheelsArr.forEach((item) => {
                 if (item.getRotate() === true)
                     item.toggleRotate()
             })
-
         }
     }
 }
@@ -564,6 +571,7 @@ class Wheel {
         this.rotate = !this.rotate;
         let message = `${this.isFrontWheel ? "Передние " : "Задние "} ${this.rotate ? "колеса крутятся" : "колеса не крутятся"}`
         console.log(message);
+
     }
     wheelsTurnRight() {
         if (this.isFrontWheel === true) {
@@ -709,7 +717,7 @@ const engineview = document.querySelector('.engine')
 
 const wheels = [new Wheel(true), new Wheel(true), new Wheel(false), new Wheel(false)]
 const engine = new Engine()
-const driveBrake = new DriveBrake(wheels)
+const driveBrake = new DriveBrake(wheels, engine)
 const btn = new StartBtn(engine)
 const headlights = new Headlights(l1, l2)
 const lightBtn = new HeadLightsBtn(headlights)

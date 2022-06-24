@@ -13,7 +13,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgb(214, 214, 214);
+    background: rgb(163, 162, 162);
 }
 .machine {
     display: flex;
@@ -24,23 +24,34 @@ body {
     height: 300px;
     background-color: rgb(48, 105, 61);
     border-radius: 10px;
+    box-shadow: 5px 5px 20px rgb(66, 66, 66);
 }
 .lights-wrapper {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     height: 15px;
+    margin: 2px;
+}
+.turn-signal {
+    display: flex;
+    width: 15px;
+    height: 10px;
+    border-radius: 3px;
+    background-color: rgb(205, 207, 206);
+    
 }
 .lights1,
 .lights2 {
     display: flex;
     width: 30px;
-    height: 15px;
+    height: 10px;
     background-color: rgb(205, 207, 206);
-    border-radius: 10px;
+    border-radius: 3px;
 }
 .lights-active {
-    background-color: rgb(252, 255, 87);
+    background-color: rgb(174, 232, 255);
+    box-shadow: 0 -80px 80px 50px rgba(174, 232, 255, 0.733);
 }
 .front {
     margin-top: 20px;
@@ -55,14 +66,13 @@ body {
     background-color: black;
     border-radius: 7px;
     transition: all 1s;
-    
+    box-shadow: 2px 2px 15px rgb(58, 58, 58);
 }
-.wheel-right{
+.wheel-right {
     transform: rotate(45deg);
 }
-.wheel-left{
+.wheel-left {
     transform: rotate(-45deg);
-    
 }
 .engine {
     /* margin-top: 10px; */
