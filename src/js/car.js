@@ -552,8 +552,7 @@ class Wheel {
     constructor(isFront) {
         this.rotate = false
         this.isFrontWheel = false
-        isFront ? this.isFrontWheel = true : null
-
+        isFront ? this.isFrontWheel = true : nu
     }
     toggleRotate() {
         this.rotate = !this.rotate;
@@ -745,11 +744,11 @@ document.addEventListener("keydown", (event) => {
         // console.log("колеса повернули налево", stearWheel)
 
     }
-    if (event.key === "w") {
+    if (event.key === "w" || event.key === "ц") {
         driveBrake.DriveBrake("Drive")
         // console.log(driveBrake)
     }
-    if (event.key === "s") {
+    if (event.key === "s" || event.key === "ы") {
         driveBrake.DriveBrake("Brake")
         // console.log(driveBrake)
     }
