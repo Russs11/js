@@ -483,17 +483,21 @@
 
 
 class Car {
-    constructor(steeringWheel, startBtn, headlightsBtn, driveBrake) {
+    constructor(steeringWheel, startBtn, headlightsBtn, driveBrake, turnSignalBtn) {
         this.steeringWheel = steeringWheel
         this.startBtn = startBtn
         this.headlightsBtn = headlightsBtn
         this.driveBrake = driveBrake
+        this.turnSignalBtn = turnSignalBtn
     }
     startCar() {
         this.startBtn.toggleOnOf()
     }
     toggleLights() {
         this.headlightsBtn.toggleOnOf()
+    }
+    toggleTurnSignal() {
+        this.turnSignalBtn.toggleLeft()
     }
 }
 class StartBtn {
@@ -619,6 +623,29 @@ class Headlights {
         }
     }
 }
+
+class TurnSignals {
+    constructor(leftSignal, rightSignal) {
+        this.onOf = false
+        this.leftSignal = leftSignal
+        this.rightSignal = rightSignal
+
+    }
+    toggleLeft() {
+        if (this.onOf === false) {
+            this.onOf = true
+            console.log("левый поворотник горит");
+            this.leftSignal.classList.add('left-signal-active')
+        }
+    }
+    toggleRight() {
+        if (this.onOf === false) {
+            this.onOf = true
+            console.log("правый поворотник горит");
+            this.rightSignal.classList.add('right-signal-active')
+        }
+    }
+}
 class StearingWheel {
     stearingWheelState;
     wheelsArr;
@@ -705,7 +732,8 @@ const wheelsArrView = document.querySelectorAll('.wheel')
 // setTimeout(() => {
 //     w3.turnWheelRight()    
 // }, 2000)
-
+const leftSignal = document.querySelector('.left-signal')
+const rightSignal = document.querySelector('.right-signal')
 const stearingWheelView = document.querySelector('.stearing-wheel')
 const l1 = document.querySelector('.lights1')
 const l2 = document.querySelector('.lights2')
@@ -720,9 +748,12 @@ const engine = new Engine()
 const driveBrake = new DriveBrake(wheels, engine)
 const btn = new StartBtn(engine)
 const headlights = new Headlights(l1, l2)
+const turnSignals = new TurnSignals(leftSignal, rightSignal)
 const lightBtn = new HeadLightsBtn(headlights)
-const car = new Car("", btn, lightBtn)
+const car = new Car("", btn, lightBtn,)
 const stearWheel = new StearingWheel(wheels)
+
+
 toggleLights.addEventListener("click", () => {
     // console.log("клик");
     toggleLights.classList.toggle("light-btn-active")
@@ -770,6 +801,21 @@ document.addEventListener("keydown", (event) => {
         // console.log(driveBrake)
     }
 })
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "a" || event.key === "ф") {
+        leftSignal.classList.toggle("left-signal-active")
+        // car.toggleLights()
+        // console.log(toggleLeft.classList);
+
+    }
+    if (event.key === "d" || event.key === "в") {
+        rightSignal.classList.toggle("right-signal-active")
+        // car.toggleLights()
+        // console.log(toggleLeft.classList);
+
+    }
+})
 document.addEventListener("keyup", (event) => {
     if (event.key === "ArrowRight") {
         stearingWheelView.style.transform = 'rotate(' + 0 + 'deg)';
@@ -792,5 +838,6 @@ document.addEventListener("keyup", (event) => {
         // console.log("колеса повернули направо", stearWheel)
     }
 })
+
 
 
