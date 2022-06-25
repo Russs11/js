@@ -496,9 +496,9 @@ class Car {
     toggleLights() {
         this.headlightsBtn.toggleOnOf()
     }
-    toggleTurnSignal() {
-        this.turnSignalBtn.toggleLeft()
-    }
+    // toggleTurnSignal() {
+    //     this.turnSignalBtn.toggleLeft()
+    // }
 }
 class StartBtn {
     constructor(engine) {
@@ -518,6 +518,16 @@ class HeadLightsBtn {
     toggleOnOf() {
         this.onOf = !this.onOf;
         this.headlights.toggleOnOf()
+    }
+}
+class TurnSignalsBtn {
+    constructor(turnSignals) {
+        this.onOf = false
+        this.turnSignals = turnSignals
+    }
+    toggleLeft() {
+        this.onOf = !this.onOf;
+        this.turnSignals.toggleLeft()
     }
 }
 class Engine {
@@ -634,16 +644,31 @@ class TurnSignals {
     toggleLeft() {
         if (this.onOf === false) {
             this.onOf = true
-            console.log("левый поворотник горит");
+            console.log("левый поворотник горит")
             this.leftSignal.classList.add('left-signal-active')
+        }
+        else {
+            this.onOf = false
+            console.log("левый поворотник не горит");
+            this.leftSignal.classList.remove('left-signal-active')
         }
     }
     toggleRight() {
         if (this.onOf === false) {
             this.onOf = true
-            console.log("правый поворотник горит");
             this.rightSignal.classList.add('right-signal-active')
+            console.log("правый поворотник горит");
+        } else {
+            this.onOf = false
+            console.log("правый поворотник не горит");
+            this.rightSignal.classList.remove('right-signal-active')
         }
+    }
+    getToggleOnOf() {
+        return this.onOf
+    }
+    setToggleOnOf(value) {
+        this.onOf = value
     }
 }
 class StearingWheel {
@@ -805,15 +830,24 @@ document.addEventListener("keydown", (event) => {
 document.addEventListener("keydown", (event) => {
     if (event.key === "a" || event.key === "ф") {
         leftSignal.classList.toggle("left-signal-active")
-        // car.toggleLights()
-        // console.log(toggleLeft.classList);
+        setInterval(() => turnSignals.toggleLeft(), 500)
+        // car.toggleTurnSignal()
 
+    } else if (event.key === "a" || event.key === "ф") {
+        // clearInterval(() => turnSignals.toggleLeft())
+        turnSignals.setToggleOnOf(false)
     }
+
+
+
     if (event.key === "d" || event.key === "в") {
         rightSignal.classList.toggle("right-signal-active")
+        setInterval(() => turnSignals.toggleRight(), 500)
         // car.toggleLights()
         // console.log(toggleLeft.classList);
 
+    } else if (event.key === "d" || event.key === "в") {
+        clearInterval(() => turnSignals.toggleRight())
     }
 })
 document.addEventListener("keyup", (event) => {
