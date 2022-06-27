@@ -644,12 +644,12 @@ class TurnSignals {
     toggleLeft() {
         if (this.onOf === false) {
             this.onOf = true
-            console.log("левый поворотник горит")
+            console.log("левый поворотник мигает")
             this.leftSignal.classList.add('left-signal-active')
         }
         else {
             this.onOf = false
-            console.log("левый поворотник не горит");
+            console.log("левый поворотник не мигает")
             this.leftSignal.classList.remove('left-signal-active')
         }
     }
@@ -657,10 +657,10 @@ class TurnSignals {
         if (this.onOf === false) {
             this.onOf = true
             this.rightSignal.classList.add('right-signal-active')
-            console.log("правый поворотник горит");
+            console.log("правый поворотник мигает");
         } else {
             this.onOf = false
-            console.log("правый поворотник не горит");
+            console.log("правый поворотник не мигает");
             this.rightSignal.classList.remove('right-signal-active')
         }
     }
@@ -828,27 +828,31 @@ document.addEventListener("keydown", (event) => {
 })
 
 document.addEventListener("keydown", (event) => {
-    let blink = null
+    // let blink = null
     if (event.key === "a" || event.key === "ф" && turnSignals.getToggleOnOf() === false) {
+        // console.log('turnSignals.getToggleOnOf(): ', turnSignals.getToggleOnOf());
         turnSignals.toggleLeft()
         blink = setInterval(() => leftSignal.classList.toggle("left-signal-active"), 500)
-
         // car.toggleTurnSignal()
 
-    } else if (event.key === "a" || event.key === "ф" && turnSignals.getToggleOnOf() === true) {
-        clearInterval(blink)
+    } else if (turnSignals.getToggleOnOf() === true && event.key === "q" || event.key === "й") {
+        clearInterval(blink);
+        turnSignals.toggleLeft()
+        turnSignals.setToggleOnOf(false)
+        console.log('turnSignals.getToggleOnOf(): ', turnSignals.getToggleOnOf());
+        console.log('clearInterval(blink): ', clearInterval(blink));
     }
 
-
-
     if (event.key === "d" || event.key === "в") {
-        rightSignal.classList.toggle("right-signal-active")
-        setInterval(() => turnSignals.toggleRight(), 500)
+        turnSignals.toggleRight()
+        blink = setInterval(() => rightSignal.classList.toggle("right-signal-active"), 500)
         // car.toggleLights()
         // console.log(toggleLeft.classList);
 
-    } else if (event.key === "d" || event.key === "в") {
-        clearInterval(() => turnSignals.toggleRight())
+    } else if (turnSignals.getToggleOnOf() === true && event.key === "e" || event.key === "у") {
+        clearInterval(blink)
+        turnSignals.toggleRight()
+        turnSignals.setToggleOnOf(false)
     }
 })
 document.addEventListener("keyup", (event) => {
@@ -869,6 +873,7 @@ document.addEventListener("keyup", (event) => {
         wheelsArrView[1].classList.remove("wheel-left")
         wheelsArrView[0].classList.remove("wheel-right")
         wheelsArrView[1].classList.remove("wheel-right")
+
 
         // console.log("колеса повернули направо", stearWheel)
     }
