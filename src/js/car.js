@@ -828,14 +828,15 @@ document.addEventListener("keydown", (event) => {
 })
 
 document.addEventListener("keydown", (event) => {
-    if (event.key === "a" || event.key === "ф") {
-        leftSignal.classList.toggle("left-signal-active")
-        setInterval(() => turnSignals.toggleLeft(), 500)
+    let blink = null
+    if (event.key === "a" || event.key === "ф" && turnSignals.getToggleOnOf() === false) {
+        turnSignals.toggleLeft()
+        blink = setInterval(() => leftSignal.classList.toggle("left-signal-active"), 500)
+
         // car.toggleTurnSignal()
 
-    } else if (event.key === "a" || event.key === "ф") {
-        // clearInterval(() => turnSignals.toggleLeft())
-        turnSignals.setToggleOnOf(false)
+    } else if (event.key === "a" || event.key === "ф" && turnSignals.getToggleOnOf() === true) {
+        clearInterval(blink)
     }
 
 
