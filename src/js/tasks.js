@@ -156,6 +156,14 @@
 // }
 // Whatday()
 
+
+
+
+
+
+
+
+
 // Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
 
 // For example(Input-- > Output):
@@ -166,12 +174,21 @@
 function persistence(num) {
     let numArr = []
     numArr = ('' + num).split('')
-    console.log(numArr.map(Number))
+    let iterationNum = 0
+    function counter(arr) {
     let result = 1
-    for (let i = 0; i < numArr.length; i++) {
-        result *= numArr[i]
-    }
-    console.log(result);
-
+        arr.forEach(item => {
+            result *= item
+        })    
+        result = ('' + result).split('')
+        return result
 }
-persistence(999)
+
+    while (numArr.length > 1) {
+        iterationNum++
+        numArr = counter(numArr)
+    }
+    console.log(iterationNum);
+}
+
+persistence(999);
