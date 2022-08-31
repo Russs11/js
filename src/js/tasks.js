@@ -207,11 +207,10 @@
 
 function highAndLow(numbers) {
     const newNumbers = numbers.replace(/\s+/g, m => (m == ' ') ? ',' : '');
-
-
-    console.log(newNumbers)
+    const number = parseInt(newNumbers)
+    console.log(number)
     // numbers.split('')
-    // console.log(Math.min(numbers))  
+    // console.log(Math.min(newNumbers))  
 }
 
 highAndLow("1 2 3 4 5")
