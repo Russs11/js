@@ -205,12 +205,37 @@
 // There will always be at least one number in the input string.
 // Output string must be two numbers separated by a single space, and highest number is first.
 
-function highAndLow(numbers) {
-    const newNumbers = numbers.replace(/\s+/g, m => (m == ' ') ? ',' : '');
-    const number = parseInt(newNumbers)
-    console.log(number)
-    // numbers.split('')
-    // console.log(Math.min(newNumbers))  
+// function highAndLow(numbers) {
+//     const newNumbers = numbers.replace(/\s+/g, m => (m == ' ') ? ',' : '');
+//     const number = parseInt(newNumbers)
+//     console.log(number)
+//     // numbers.split('')
+//     // console.log(Math.min(newNumbers))
+// }
+
+// highAndLow("1 2 3 4 5")
+// The marketing team is spending way too much time typing in hashtags.
+// Let's help them with our own Hashtag Generator!
+
+// Here's the deal:
+
+// It must start with a hashtag (#).
+// All words must have their first letter capitalized.
+// If the final result is longer than 140 chars it must return false.
+// If the input or the result is an empty string it must return false.
+function generateHashtag(str) {
+
+    str = str.replace(/\b\w/g, (c) => c.toUpperCase());
+    const splitted = str.split(" ");
+    splitted.unshift("#");
+    const res = splitted.join("");
+    if (res === "#") {
+        return false;
+    } else if (res.length >= 140) {
+        return false;
+    } else {
+        return res
+    }
 }
 
-highAndLow("1 2 3 4 5")
+console.log(generateHashtag(''));
