@@ -223,19 +223,39 @@
 // All words must have their first letter capitalized.
 // If the final result is longer than 140 chars it must return false.
 // If the input or the result is an empty string it must return false.
-function generateHashtag(str) {
+// function generateHashtag(str) {
 
-    str = str.replace(/\b\w/g, (c) => c.toUpperCase());
-    const splitted = str.split(" ");
-    splitted.unshift("#");
-    const res = splitted.join("");
-    if (res === "#") {
-        return false;
-    } else if (res.length >= 140) {
-        return false;
-    } else {
-        return res
-    }
+//     str = str.replace(/\b\w/g, (c) => c.toUpperCase());
+//     const splitted = str.split(" ");
+//     splitted.unshift("#");
+//     const res = splitted.join("");
+//     if (res === "#") {
+//         return false;
+//     } else if (res.length >= 140) {
+//         return false;
+//     } else {
+//         return res
+//     }
+// }
+
+// console.log(generateHashtag(''));
+function numbersTostring(arr){
+  // const res = arr.split('78 2948')
+   const res = arr.split('\n')
+  const res2 = res.map(item =>{
+    return item.slice(8)
+  })
+  console.log(res2.join(', '))
+  // const res2 = res.split(' ,').join(',')
+ // console.log(res2)
 }
 
-console.log(generateHashtag(''));
+numbersTostring(
+`78 2948 2867219
+78 2948 2867343
+78 2948 2867007
+78 2948 2867339
+78 2948 2866999
+78 2948 2867335
+78 2948 2866995
+`)
