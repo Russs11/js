@@ -238,21 +238,29 @@
 //     }
 // }
 
-// console.log(generateHashtag(''));
-function numbersTostring(arr){
-  // const res = arr.split('78 2948')
-   const res = arr.split('\n')
-  const res2 = res.map(item =>{
-    return item.slice(8)
+// // console.log(generateHashtag(''));
+// function numbersTostring(arr){
+//   // const res = arr.split('78 2948')
+//    const res = arr.split('\n')
+//   const res2 = res.map(item =>{
+//     return item.slice(8)
+//   })
+//   console.log(res2.join(', '))
+//   // const res2 = res.split(' ,').join(',')
+//  // console.log(res2)
+// }
+
+// numbersTostring(
+// `78 2948 2867219
+// 78 2948 2867343
+// 78 2948 2867007
+
+// `)
+
+fetch('https://jsonplaceholder.typicode.com/todos')
+  .then(response => {
+    console.log(response)
+    return response.json()
   })
-  console.log(res2.join(', '))
-  // const res2 = res.split(' ,').join(',')
- // console.log(res2)
-}
-
-numbersTostring(
-`78 2948 2867219
-78 2948 2867343
-78 2948 2867007
-
-`)
+  .then(json => console.log(json))
+  .catch(error => console.error(error))
