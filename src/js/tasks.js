@@ -257,10 +257,18 @@
 
 // `)
 
-fetch('https://jsonplaceholder.typicode.com/todos')
-  .then(response => {
-    console.log(response)
-    return response.json()
+// fetch('https://jsonplaceholder.typicode.com/todos')
+//   .then(response => {
+//     console.log(response)
+//     return response.json()
+//   })
+//   .then(json => console.log(json))
+//   .catch(error => console.error(error))
+function findShort(s){
+s = s.split(' ').reduce((a,b) =>{
+    return a.length < b.length ? a : b
   })
-  .then(json => console.log(json))
-  .catch(error => console.error(error))
+  return s.length
+}
+
+console.log(findShort("bitcoin take over the world maybe who knows perhaps"))
