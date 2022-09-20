@@ -271,4 +271,4 @@ s = s.split(' ').reduce((a,b) =>{
   return s.length
 }
 
-console.log(findShort("bitcoin take over the world maybe who knows perhaps"))
+console.log(findShort("b perhaps"))
