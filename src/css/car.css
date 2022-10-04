@@ -18,7 +18,7 @@ body {
 .machine {
     margin-top: 100px;
     display: flex;
-    /* justify-content: space-between; */
+   
     flex-direction: column;
     align-items: center;
     width: 150px;
@@ -84,7 +84,7 @@ box-shadow: 50px 8px 80px 50px orange
     transform: rotate(-45deg);
 }
 .engine {
-    /* margin-top: 10px; */
+   
     display: flex;
     width: 50px;
     height: 70px;
@@ -92,7 +92,7 @@ box-shadow: 50px 8px 80px 50px orange
     border-radius: 5px;
 }
 .engine-active {
-    /* margin-top: 10px; */
+   
     background-color: red;
 }
 .rear {
