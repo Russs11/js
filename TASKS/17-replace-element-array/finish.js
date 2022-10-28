@@ -8,3 +8,7 @@
  *
  * 4. Выведите в консоль измененный массив
  */
+const myArray = [true, 10, 'string', null]
+console.log(myArray);
+myArray[3] = 12
+console.log(myArray);
