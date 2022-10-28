@@ -10,3 +10,11 @@
  *
  * 5. Перепишите функцию так, чтобы результат возвращался неявно
  */
+const hello = () => {
+    return 'Hello, World!'
+}
+
+console.log(hello());
+
+const hello2 = () => 'Hello, World!'
+console.log(hello2());
