@@ -8,10 +8,11 @@
 
 let myVariable1 = 10
 let myVariable2 = '5'
-
+console.log(parseInt(myVariable1) <= parseInt(myVariable2));
 // Напишите код здесь
 
 myVariable1 = '20'
 myVariable2 = 100
+console.log(parseInt(myVariable1) <= parseInt(myVariable2));
 
 // Напишите код здесь
