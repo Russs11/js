@@ -267,31 +267,55 @@
 // 1 - Сделай функцию, которая принимает массив любых целых чисел, которая возращает истинну, если все элементы четные, если бы хотя бы один элемент не четный, то false.
 
 // 3 - Сделай функцию, которая принимает массив любых целых чисел, которая возращает новый массив, где все элементы кратны пяти. ([1, 2, 5, 12, 15, 21] вернет[5, 15])
-let fiveArr = [1, 2, 5, 12, 15, 21, 25]
-function FiveNumber(arr) {
-    let resArr = arr.filter(item => {
-        if (item % 5 === 0)
-            return item
-    })
+// let fiveArr = [1, 2, 5, 12, 15, 21, 25]
+// function FiveNumber(arr) {
+//     let resArr = arr.filter(item => {
+//         if (item % 5 === 0)
+//             return item
+//     })
 
-    // for (i = 0; i < arr.length; i++) {
-    //     if (arr[i] % 5 === 0) {
-    //         resArr.push(arr[i])
-    //     }
-    // }
-    console.log(resArr)
-}
-FiveNumber(fiveArr)
-FiveNumber([1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 24, 25, 30])
+//     // for (i = 0; i < arr.length; i++) {
+//     //     if (arr[i] % 5 === 0) {
+//     //         resArr.push(arr[i])
+//     //     }
+//     // }
+//     console.log(resArr)
+// }
+// FiveNumber(fiveArr)
+// FiveNumber([1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 24, 25, 30])
 
 
 // 4 - Написать функцию, которая принимает массив чисел, например[1, 2, 3, 4, 5] и функция возращает среднее арифметическое, (округлить результат до десятых)
-let numbersArr = [3, 6, 5, 8]
-function Average(arr) {
-    let resAverage = arr.reduce((a, b) => (a + b)) / arr.length
-    console.log(resAverage)
-}
-Average(numbersArr)
+// let numbersArr = [3, 6, 5, 8]
+// function Average(arr) {
+//     let resAverage = arr.reduce((a, b) => (a + b)) / arr.length
+//     console.log(resAverage)
+// }
+// Average(numbersArr)
 
 // 5 - Написать функцию, которая принимает массив чисел, например[1, 2, 3, 4, 5], и переносит первый элемент массива в конец(например можно засунуть первый элемент в конец, затем удалить первый элемент), попробуй несколькими способами сделать, если догадаешься
 // 6 - Написать функцию, которая принимает массив сотрудников, каждый сотрудник имеет имя и возраст([{ name: 'Иван', age: 23 }, ...]) и возвращает массим, где каждый элемент представляет из себя строку "Имя: Иван, возвраст: 23".
+
+
+// const isRobot = prompt('Сколько будет 7 + или - 15?')
+
+// if (isRobot === '22' || isRobot === '-8' || isRobot === 'Я не робот') {
+//     console.log('Успех');
+// } else {
+//     console.log('Вы робот');
+// }
+function fakeBin(x) {
+    let stringArr = x.split('')
+    let toNum = stringArr.map(Number);
+    for (let i = 0; i <toNum.length; i++){
+        if (toNum[i] < 5) {
+           toNum[i] = 0
+        } else {
+            toNum[i] = 1
+       }
+    }
+    
+    return toNum.join('') 
+}
+
+fakeBin('45385593107843568')
