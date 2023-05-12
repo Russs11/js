@@ -25,6 +25,21 @@ class Ork extends Enemy {
 
 }
 
+class Troll extends Enemy{
+	
+	constructor(health){
+		super(health)
+	}
+
+	recieveDamage(damage){
+		if (Math.random() > 0.4){
+			this.health = this.health - damage
+		}
+		console.log(this.health);
+	}
+
+}
+
 class Sword {
 	damage
 	constructor(damage) {
@@ -38,7 +53,9 @@ class Sword {
 const enemy = new Enemy(10)
 const sword = new Sword(3)
 const ork = new Ork(10)
+const troll = new Troll(20)
+sword.strike(enemy)
 sword.strike(ork)
 sword.strike(ork)
-sword.strike(ork)
-sword.strike(ork)
+sword.strike(troll)
+console.log(troll);
