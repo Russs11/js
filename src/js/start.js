@@ -10,6 +10,9 @@ class Enemy {
 		this.health = this.health - damage;
 		console.log(this.health);
 	}
+	recieveHill(hill){
+		this.health += hill
+	}
 }
 
 class Ork extends Enemy {
@@ -50,12 +53,25 @@ class Sword {
 	}
 }
 
+class Hill {
+	Hill
+	constructor(hill){
+		this.hill = hill
+	}
+	hilling(enemy){
+		enemy.recieveHill(this.hill)
+	}
+}
+
 const enemy = new Enemy(10)
 const sword = new Sword(3)
+const hill = new Hill(2)
 const ork = new Ork(10)
 const troll = new Troll(20)
 sword.strike(enemy)
 sword.strike(ork)
 sword.strike(ork)
 sword.strike(troll)
+hill.hilling(enemy)
+
 console.log(troll);
