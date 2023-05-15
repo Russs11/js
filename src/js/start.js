@@ -1,5 +1,5 @@
 // Классы упражнение
-
+'use strict'
 class Enemy {
 	health
 	constructor(health) {
@@ -75,3 +75,16 @@ sword.strike(troll)
 hill.hilling(enemy)
 
 console.log(troll);
+
+class Character{
+	#inventory
+	#health
+
+	putItem(item) {
+		this.#inventory.push(item)
+	}
+	recieveDamage(damage) {
+		this.#health -= damage
+	}
+
+}
